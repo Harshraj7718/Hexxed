@@ -3,7 +3,7 @@ import LiquidMetalLogo from '../effects/FramerLiquidMetal'
 import { MARQUEE_WORDS, PILLARS, QUESTION, STATS } from '../data'
 import { CountUp, Reveal, cl, ease, sectionProgress, seg, useFrame } from '../motion'
 
-const LOGO = '/assets/haxxed-logo.png'
+const LOGO = '/assets/haxxed-logo-metal.png'
 const WORDS = QUESTION.split(' ')
 
 export function Marquee({ seconds }: { seconds: number }) {
@@ -48,7 +48,7 @@ export function Born({ metalSpeed }: { metalSpeed: number }) {
         <div ref={bornRef} className="born__reveal">
           <div className="eyebrow">Turns out, yes. So</div>
           <div className="born__logo" role="img" aria-label="HAXXED">
-            <LiquidMetalLogo imageSource={LOGO} speed={0.3 * metalSpeed} />
+            <LiquidMetalLogo imageSource={LOGO} speed={0.3 * metalSpeed} dispersion={0.015} edge={0.4} patternBlur={0.005} liquify={0.07} patternScale={2} />
           </div>
           <div className="born__was">was born.</div>
         </div>
