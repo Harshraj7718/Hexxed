@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
   { id: 'clay', name: 'Clay Pomade', tag: 'Extreme hold', sub: 'Extreme hold · Natural finish (oil based)', pitch: 'The all-day architect. Height and structure that won’t quit.', hold: 5, shine: 3, img: '/assets/clay-pomade.png', accent: '#4a3c34', stock: true },
   { id: 'define', name: 'Define Cream', tag: 'Light hold', sub: '2x softness & smoothness', pitch: 'Softness on command. Curls and waves that move like they should.', hold: 0.5, shine: 0.7, approx: true, img: '/assets/define-cream.png', accent: '#2c7a6e', stock: true },
   { id: 'cream', name: 'Cream Pomade', tag: 'High hold', sub: 'High hold · High shine', pitch: 'Shine that means business. Slick-backs, side parts, sharp edges.', hold: 5, shine: 4, img: '/assets/cream-pomade.png', accent: '#4636a6', stock: true },
-  { id: 'matte', name: 'Matte Paste', tag: 'High hold', sub: 'High hold · Matte finish', pitch: 'Zero shine, full grip. The “I just woke up like this” lie.', hold: 5, shine: 1, img: null, accent: '#141412', stock: true },
+  { id: 'matte', name: 'Matte Paste', tag: 'High hold', sub: 'High hold · Matte finish', pitch: 'Zero shine, full grip. The “I just woke up like this” lie.', hold: 5, shine: 1, img: '/assets/matte-paste.webp', accent: '#141412', stock: true },
 ]
 
 export const productById = (id: ProductId) => PRODUCTS.find(p => p.id === id)!

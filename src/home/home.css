@@ -124,7 +124,7 @@ button { font: inherit; color: inherit }
 .born__words span { display: inline-block; margin-right: .22em; opacity: .14 }
 .born__reveal { grid-area: 1/1; opacity: 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px }
 .born__reveal .eyebrow { font-size: 13px; color: var(--on-dark-dim) }
-.born__logo { width: min(74vw, 800px); aspect-ratio: 2/1; display: block }
+.born__logo { width: min(74vw, 560px); aspect-ratio: 1; display: block }
 .born__logo-fallback { width: min(70vw, 760px); height: auto; filter: invert(1); display: block }
 .born__was { font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 96px); line-height: 1; color: var(--yellow) }
 

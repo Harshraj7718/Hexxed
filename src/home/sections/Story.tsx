@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { LiquidMetal } from '../effects/LiquidMetal'
+import { useRef, useState } from 'react'
+import LiquidMetalLogo from '../effects/FramerLiquidMetal'
 import { MARQUEE_WORDS, PILLARS, QUESTION, STATS } from '../data'
 import { CountUp, Reveal, cl, ease, sectionProgress, seg, useFrame } from '../motion'
 
@@ -22,19 +22,6 @@ export function Born({ metalSpeed }: { metalSpeed: number }) {
   const sectionRef = useRef<HTMLElement>(null)
   const questionRef = useRef<HTMLDivElement>(null)
   const bornRef = useRef<HTMLDivElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const metal = useRef<LiquidMetal | null>(null)
-  const [metalOk, setMetalOk] = useState(true)
-
-  useEffect(() => {
-    const m = new LiquidMetal(canvasRef.current!, LOGO, metalSpeed)
-    if (!m.ok) setMetalOk(false)
-    metal.current = m
-    return () => { m.dispose(); metal.current = null }
-  }, [])
-
-  useEffect(() => { if (metal.current) metal.current.speed = metalSpeed }, [metalSpeed])
-
   useFrame(() => {
     const pb = sectionProgress(sectionRef.current)
     const q = questionRef.current, bn = bornRef.current
@@ -47,7 +34,6 @@ export function Born({ metalSpeed }: { metalSpeed: number }) {
     const b = ease(seg(pb, 0.7, 0.92))
     bn.style.opacity = String(b)
     bn.style.transform = `scale(${0.7 + 0.3 * b})`
-    metal.current?.frame(b > 0)
   })
 
   return (
@@ -61,9 +47,9 @@ export function Born({ metalSpeed }: { metalSpeed: number }) {
         </div>
         <div ref={bornRef} className="born__reveal">
           <div className="eyebrow">Turns out, yes. So</div>
-          {metalOk
-            ? <canvas ref={canvasRef} className="born__logo" role="img" aria-label="HAXXED" />
-            : <img src={LOGO} alt="HAXXED" className="born__logo-fallback" />}
+          <div className="born__logo" role="img" aria-label="HAXXED">
+            <LiquidMetalLogo imageSource={LOGO} speed={0.3 * metalSpeed} />
+          </div>
           <div className="born__was">was born.</div>
         </div>
       </div>
