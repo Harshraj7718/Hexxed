@@ -10,7 +10,11 @@ export function ProductImage({ product, className = 'contain-img', label }: { pr
 
 const rating = (v: number, approx?: boolean) => (approx ? '≈' : '') + v + '/5'
 
-export function Bench({ onAdd }: { onAdd: (id: ProductId) => void }) {
+const HOME_IDS: ProductId[] = ['clay', 'define', 'cream', 'matte']
+
+/** `all` lists every formula (products page); otherwise just the four home-page picks. */
+export function Bench({ onAdd, all = false }: { onAdd: (id: ProductId) => void; all?: boolean }) {
+  const list = all ? PRODUCTS : HOME_IDS.map(productById)
   return (
     <section id="bench" className="bench">
       <Reveal className="section-head">
@@ -18,21 +22,21 @@ export function Bench({ onAdd }: { onAdd: (id: ProductId) => void }) {
           <div className="eyebrow">The styling bench</div>
           <h2 className="h2">Pick your <span className="hl">weapon.</span></h2>
         </div>
-        <a href="#bench" className="bench__all">See all 12 formulas →</a>
+        {!all && <a href="/products.html" className="bench__all">See all formulas →</a>}
       </Reveal>
       <div className="cards">
-        {PRODUCTS.filter(p => p.img).map((p, i) => (
+        {list.filter(p => p.img).map((p, i) => (
           <Reveal key={p.id} delay={i * 110}>
             <div className="card">
               <div className="card__meta">
                 <span className="card__stock"><i style={{ background: p.stock ? 'oklch(0.6 0.13 150)' : '#b04a3a' }} />{p.stock ? 'In stock' : 'Sold out'}</span>
                 <span className="card__tag">{p.tag}</span>
               </div>
-              <div className="card__media">
+              <a href={'/product.html?p=' + p.slug} className="card__media" aria-label={p.name}>
                 <ProductImage product={p} className="card__img" label={'product shot — ' + p.name.toUpperCase()} />
-              </div>
+              </a>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <div className="card__name">{p.name.toUpperCase()}</div>
+                <a href={'/product.html?p=' + p.slug} className="card__name">{p.name.toUpperCase()}</a>
                 <div className="card__pitch">{p.pitch}</div>
               </div>
               <div className="card__bars">
@@ -41,7 +45,7 @@ export function Bench({ onAdd }: { onAdd: (id: ProductId) => void }) {
               </div>
               <div className="card__foot">
                 <div className="price"><b>₹{PRICE}</b><span className="strike">₹{MRP}</span></div>
-                <button type="button" className="btn btn--outline card__add" onClick={() => onAdd(p.id)}>Add to bag</button>
+                <button type="button" className="btn btn--outline card__add" disabled={!p.stock} onClick={() => onAdd(p.id)}>{p.stock ? 'Add to bag' : 'Sold out'}</button>
               </div>
             </div>
           </Reveal>
@@ -100,7 +104,7 @@ export function Match({ onAdd, onStep }: MatchProps) {
                 <div className="result__name">{res.name}</div>
                 <div className="result__why">{WHY[res.id]}</div>
                 <div className="result__actions">
-                  <button type="button" className="btn result__add" onClick={() => onAdd(res.id)}>Add to bag — ₹{PRICE}</button>
+                  <button type="button" className="btn result__add" disabled={!res.stock} onClick={() => onAdd(res.id)}>{res.stock ? `Add to bag — ₹${PRICE}` : 'Sold out'}</button>
                   <button type="button" className="result__retake" onClick={() => { setStep(0); setAnswers([]) }}>Retake</button>
                 </div>
               </div>
@@ -126,9 +130,14 @@ export function Looks({ onAdd }: { onAdd: (id: ProductId) => void }) {
         {LOOKS.map((lk, i) => (
           <Reveal key={lk.title} delay={i * 110} className="look">
             <LookFlipCard look={lk} onAdd={onAdd} />
-            <button type="button" className="btn btn--ghost-dark look__add" onClick={() => onAdd(lk.id)}>
-              <span>Get it with <strong>{lk.product}</strong></span><span>+ ₹{PRICE}</span>
-            </button>
+            <div className="look__row">
+              <button type="button" className="btn btn--ghost-dark look__add" disabled={!productById(lk.id).stock} onClick={() => onAdd(lk.id)}>
+                <span>Get it with <strong>{lk.product}</strong></span><span>+ ₹{PRICE}</span>
+              </button>
+              <a className="look__go" href={'/product.html?p=' + productById(lk.id).slug} aria-label={'View ' + productById(lk.id).name} title={'View ' + productById(lk.id).name}>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
+              </a>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -200,7 +209,8 @@ function LookFlipCard({ look, onAdd }: { look: (typeof LOOKS)[number]; onAdd: (i
           </div>
           <div className="pback__foot">
             <div className="price"><b>₹{PRICE}</b><span className="strike">₹{MRP}</span></div>
-            <button type="button" className="btn btn--outline card__add" onClick={() => onAdd(look.id)}>Add to bag</button>
+            <button type="button" className="btn btn--outline card__add" disabled={!p.stock} onClick={() => onAdd(look.id)}>{p.stock ? 'Add to bag' : 'Sold out'}</button>
+            <a className="pback__go" href={'/product.html?p=' + p.slug} aria-label={'View ' + p.name} title={'View ' + p.name}>↗</a>
           </div>
           {!canHover() && <button type="button" className="pback__back" onClick={() => setFlipped(false)}>↺ Back to the look</button>}
         </div>

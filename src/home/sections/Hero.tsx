@@ -119,9 +119,8 @@ export function Hero({ gridSpacing, gridSpotlight, onAdd, onBuyNow, onBuyTrio, o
                 <span>SHINE <span style={{ color: p.accent }}>{dots(c.shine)}</span></span>
               </div>
               <div className="chapter__buy">
-                <button type="button" className="btn chapter__add" style={{ background: p.accent }} onClick={() => onAdd(c.id)}>Add to bag — ₹{PRICE}</button>
+                <button type="button" className="btn chapter__add" style={{ background: p.accent }} disabled={!p.stock} onClick={() => onAdd(c.id)}>{p.stock ? `Add to bag — ₹${PRICE}` : 'Sold out'}</button>
                 <span className="strike">₹{MRP}</span>
-                <a href={'/jar-3d.html?v=' + c.id} className="chapter__spin">Spin it in 3D</a>
               </div>
             </div>
           )
@@ -135,7 +134,7 @@ export function Hero({ gridSpacing, gridSpotlight, onAdd, onBuyNow, onBuyTrio, o
           <div className="packed__col">
             <div className="packed__btns">
               <button type="button" className="btn btn--yellow packed__buy" onClick={onBuyNow}>Buy now — ₹{PRICE}</button>
-              <button type="button" className="btn btn--outline packed__trio" onClick={onBuyTrio}>Box all 3 · save 20%</button>
+              <button type="button" className="btn btn--outline packed__trio" onClick={onBuyTrio}>Box all 3 · save 15%</button>
             </div>
             <div className="packed__note">Clean formula · Made in India · Free nationwide delivery</div>
           </div>

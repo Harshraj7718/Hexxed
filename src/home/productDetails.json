@@ -1,0 +1,709 @@
+{
+ "clay-pomade": {
+  "id": "clay",
+  "name": "Clay Pomade",
+  "tag": "Extreme hold",
+  "sub": "Extreme hold · Natural finish (oil based)",
+  "hold": 5,
+  "shine": 3,
+  "approx": false,
+  "stock": true,
+  "description": "A clay pomade for thick, dry hair. Preservative-free and made with natural ingredients including shea butter, olive oil, kaolin clay and bentonite clay. Extreme hold, added thickness, texture and volume, resistant to humidity and sweat, with a fresh, natural finish that lasts all day.",
+  "ingredients": [
+   [
+    "Beeswax",
+    "Strong, reliable hold and structure"
+   ],
+   [
+    "Kaolin & bentonite clay",
+    "Volume, texture and density"
+   ],
+   [
+    "Shea butter",
+    "Moisturizes and protects against dryness"
+   ],
+   [
+    "Olive oil & coconut oil",
+    "Conditioning without greasiness"
+   ],
+   [
+    "Arrowroot powder",
+    "Controls excess oil for a matte finish"
+   ]
+  ],
+  "benefits": [
+   "Extreme hold that lasts all day",
+   "Natural shine",
+   "Volume and texture from the clay content",
+   "Oil-based, preservative-free, deeply conditioning",
+   "Suited to structured and sculpted hairstyles"
+  ],
+  "howTo": [
+   "Start with dry or slightly damp hair.",
+   "Warm a fingertip-sized amount between your palms.",
+   "Work from roots to ends, adding more only where you need hold.",
+   "Use fingertips for texture or a comb for a cleaner shape."
+  ],
+  "bestFor": "Thick, dry hair",
+  "gallery": [
+   "/assets/products/clay-pomade/g1.webp",
+   "/assets/products/clay-pomade/g2.webp"
+  ],
+  "info": [
+   "/assets/products/clay-pomade/i1.webp",
+   "/assets/products/clay-pomade/i2.webp",
+   "/assets/products/clay-pomade/i3.webp",
+   "/assets/products/clay-pomade/i4.webp",
+   "/assets/products/clay-pomade/i5.webp",
+   "/assets/products/clay-pomade/i6.webp",
+   "/assets/products/clay-pomade/i7.webp"
+  ]
+ },
+ "matte-paste": {
+  "id": "matte",
+  "name": "Matte Paste",
+  "tag": "High hold",
+  "sub": "High hold · Matte finish",
+  "hold": 5,
+  "shine": 1,
+  "approx": false,
+  "stock": true,
+  "description": "a high-hold clay formula designed to deliver serious grip, dry texture, and a true matte finish",
+  "ingredients": [
+   [
+    "Kaolin Clay",
+    "dry texture, volume, and thickness with a strong matte hold"
+   ],
+   [
+    "Shea Butter",
+    "softens hair and reduces dryness without shine or weight"
+   ],
+   [
+    "Olive Oil",
+    "nourishes the scalp and keeps hair healthy and manageable"
+   ],
+   [
+    "Avocado Oil",
+    "supplies fatty acids that strengthen and moisturize hair"
+   ],
+   [
+    "Glycerin",
+    "draws in moisture to keep hair soft and reduce flaking"
+   ],
+   [
+    "Vitamin E",
+    "protects hair from damage and supports scalp health"
+   ]
+  ],
+  "benefits": [
+   "Long-lasting, high hold",
+   "Matte finish with no shine",
+   "Adds volume and definition",
+   "Non-greasy and reworkable",
+   "Washes out easily with water",
+   "Holds all day without stiffness or crunch",
+   "Lightweight, so it won't weigh hair down",
+   "Made with clean, nourishing ingredients that are gentle on the scalp"
+  ],
+  "howTo": [
+   "Apply to fully dry hair for the most matte result.",
+   "Rub a small amount between your palms until it disappears.",
+   "Push through the roots for lift, then pinch sections for definition.",
+   "Rework with dry hands whenever the style needs a refresh."
+  ],
+  "bestFor": "People who want volume and definition",
+  "gallery": [
+   "/assets/products/matte-paste/g1.webp",
+   "/assets/products/matte-paste/g2.webp"
+  ],
+  "info": [
+   "/assets/products/matte-paste/i1.webp",
+   "/assets/products/matte-paste/i2.webp",
+   "/assets/products/matte-paste/i3.webp",
+   "/assets/products/matte-paste/i4.webp",
+   "/assets/products/matte-paste/i5.webp",
+   "/assets/products/matte-paste/i6.webp",
+   "/assets/products/matte-paste/i7.webp"
+  ]
+ },
+ "cream-pomade": {
+  "id": "cream",
+  "name": "Cream Pomade",
+  "tag": "High hold",
+  "sub": "High hold · High shine",
+  "hold": 5,
+  "shine": 4,
+  "approx": false,
+  "stock": false,
+  "description": "Master the slick-back, side-part, or polished look with our Cream Pomade",
+  "ingredients": [
+   [
+    "Beeswax",
+    "Provides strong hold and structure"
+   ],
+   [
+    "Shea Butter & Mango Butter",
+    "Add smoothness, shine, and moisture"
+   ],
+   [
+    "Olive Oil & Avocado Oil",
+    "Nourish and soften hair while boosting natural luster"
+   ],
+   [
+    "Vitamin E",
+    "Helps protect hair from damage and supports healthy growth"
+   ]
+  ],
+  "benefits": [
+   "Long-lasting hold without stiffness",
+   "High shine for a polished look",
+   "Petroleum-free, non-greasy finish",
+   "Spreads smoothly without tugging or clumping",
+   "Conditions hair while styling",
+   "Doesn't flake or dry out hair",
+   "Made with hair-friendly natural ingredients"
+  ],
+  "howTo": [
+   "Apply to towel-dried hair.",
+   "Warm a small amount between your palms.",
+   "Comb through evenly from root to tip.",
+   "Add a second light layer only where extra control is needed."
+  ],
+  "bestFor": "Slick-backs and side parts",
+  "gallery": [
+   "/assets/products/cream-pomade/g1.webp",
+   "/assets/products/cream-pomade/g2.webp"
+  ],
+  "info": [
+   "/assets/products/cream-pomade/i1.webp",
+   "/assets/products/cream-pomade/i2.webp",
+   "/assets/products/cream-pomade/i3.webp",
+   "/assets/products/cream-pomade/i4.webp",
+   "/assets/products/cream-pomade/i5.webp",
+   "/assets/products/cream-pomade/i6.webp",
+   "/assets/products/cream-pomade/i7.webp"
+  ]
+ },
+ "sculpting-cream": {
+  "id": "sculpting",
+  "name": "Sculpting Clay",
+  "tag": "Strong hold",
+  "sub": "Strong hold · Restylable",
+  "hold": 4,
+  "shine": 1,
+  "approx": false,
+  "stock": false,
+  "description": "Effortless Texture. Maximum Hold. Zero Weight.",
+  "ingredients": [
+   [
+    "Shea Butter",
+    "moisturizing, softens hair, reduces dryness and flakiness"
+   ],
+   [
+    "Beeswax",
+    "flexible hold that keeps styles from feeling stiff"
+   ],
+   [
+    "Kaolin Clay",
+    "adds texture and volume with a matte finish"
+   ],
+   [
+    "Arrowroot Powder",
+    "absorbs excess oil for a light feel"
+   ],
+   [
+    "Olive Oil",
+    "nourishes the scalp and adds shine without weight"
+   ],
+   [
+    "Glycerin",
+    "draws in moisture to keep hair soft and hydrated"
+   ],
+   [
+    "Vitamin E",
+    "antioxidant that supports scalp health and stronger hair"
+   ]
+  ],
+  "benefits": [
+   "Strong hold with a soft, touchable texture",
+   "Adds volume and definition without heaviness",
+   "Can be reworked through the day without losing hold",
+   "Lightweight, non-greasy, and easy to wash out",
+   "Made with clean, natural ingredients",
+   "Suited to fine hair or styles needing structure with flexibility",
+   "Designed to keep hair and scalp healthy with daily use"
+  ],
+  "howTo": [
+   "Blow-dry hair in the direction you want extra lift.",
+   "Warm a small amount fully between your palms.",
+   "Rake through from the back, then shape the front.",
+   "Build up gradually to avoid weighing down fine hair."
+  ],
+  "bestFor": "Fine or thin hair",
+  "gallery": [
+   "/assets/products/sculpting-cream/g1.webp",
+   "/assets/products/sculpting-cream/g2.webp"
+  ],
+  "info": [
+   "/assets/products/sculpting-cream/i1.webp",
+   "/assets/products/sculpting-cream/i2.webp",
+   "/assets/products/sculpting-cream/i3.webp",
+   "/assets/products/sculpting-cream/i4.webp",
+   "/assets/products/sculpting-cream/i5.webp",
+   "/assets/products/sculpting-cream/i6.webp",
+   "/assets/products/sculpting-cream/i7.webp"
+  ]
+ },
+ "styling-wax": {
+  "id": "wax",
+  "name": "Styling Wax",
+  "tag": "Medium hold",
+  "sub": "Medium hold · Satin finish",
+  "hold": 3,
+  "shine": 2,
+  "approx": false,
+  "stock": false,
+  "description": "Elevate your style with our High-Hold Satin Finish Hair Wax, made with a blend of premium natural ingredients.",
+  "ingredients": [
+   [
+    "Nourishing oils",
+    "nourishment (individual oils not named on the page)"
+   ],
+   [
+    "Plant-based butters",
+    "nourishment (individual butters not named on the page)"
+   ]
+  ],
+  "benefits": [
+   "High hold for long-lasting control",
+   "Natural satin finish with minimal shine",
+   "Adds texture, volume, and definition",
+   "Non-greasy, reworkable, and easy to wash out",
+   "Made with premium, nourishing ingredients",
+   "Strong, all-day hold without stiffness or crunch",
+   "Satin-matte finish for a natural, effortless look",
+   "Adds volume, texture, and structure with ease",
+   "Non-greasy and lightweight, won't weigh hair down",
+   "Easy to apply and rework, perfect for touch-ups",
+   "Rinses out easily with just water",
+   "Made with clean, nourishing ingredients, gentle on scalp"
+  ],
+  "howTo": [
+   "Start with dry hair and a pea-sized amount.",
+   "Warm until the wax spreads clear across your hands.",
+   "Work from roots to ends with open palms.",
+   "Use fingertips to define the final outline."
+  ],
+  "bestFor": "Thin hair and flexible shapes",
+  "gallery": [
+   "/assets/products/styling-wax/g1.webp",
+   "/assets/products/styling-wax/g2.webp"
+  ],
+  "info": [
+   "/assets/products/styling-wax/i2.webp",
+   "/assets/products/styling-wax/i3.webp",
+   "/assets/products/styling-wax/i4.webp",
+   "/assets/products/styling-wax/i5.webp",
+   "/assets/products/styling-wax/i6.webp",
+   "/assets/products/styling-wax/i7.webp",
+   "/assets/products/styling-wax/i8.webp",
+   "/assets/products/styling-wax/i9.webp"
+  ]
+ },
+ "texture-paste": {
+  "id": "texture",
+  "name": "Texture Paste",
+  "tag": "High texture",
+  "sub": "High texture · High volume",
+  "hold": 2,
+  "shine": 1,
+  "approx": false,
+  "stock": false,
+  "description": "designed to deliver tons of texture, a true matte finish, and a reliable medium hold",
+  "ingredients": [
+   [
+    "Kaolin & Bentonite Clay",
+    "adds dry grip for natural volume and all-day hold"
+   ],
+   [
+    "Arrowroot Powder & Starch",
+    "absorbs excess oil for a light, matte finish"
+   ],
+   [
+    "Almond & Olive Oil",
+    "keeps hair soft without weighing it down"
+   ],
+   [
+    "Shea Butter & Aloe Vera Extract",
+    "hydrates and protects scalp and hair"
+   ],
+   [
+    "Bamboo Extract & Hydrolyzed Wheat Protein",
+    "strengthens strands and boosts texture"
+   ],
+   [
+    "Vitamin E",
+    "supports overall hair health"
+   ]
+  ],
+  "benefits": [
+   "Strong texture with a dry, matte finish",
+   "Flexible medium hold that can be reworked",
+   "Made without silicones or synthetic waxes",
+   "Best suited to short to medium hair",
+   "Rinses out easily with water"
+  ],
+  "howTo": [
+   "Apply to dry hair for the cleanest matte finish",
+   "Warm a small amount between fingers and palms",
+   "Scrunch, rake, or pinch depending on the look you want",
+   "Use sparingly to build hold without flattening volume"
+  ],
+  "bestFor": "Short to medium hair",
+  "gallery": [
+   "/assets/products/texture-paste/g1.webp",
+   "/assets/products/texture-paste/g2.webp"
+  ],
+  "info": [
+   "/assets/products/texture-paste/i2.webp"
+  ]
+ },
+ "define-cream": {
+  "id": "define",
+  "name": "Define Cream",
+  "tag": "Light hold",
+  "sub": "2x softness & smoothness",
+  "hold": 0.5,
+  "shine": 0.7,
+  "approx": true,
+  "stock": true,
+  "description": "Bring Life Back to Tired Hair.",
+  "ingredients": [
+   [
+    "Beeswax",
+    "Light, flexible hold that helps shape hair"
+   ],
+   [
+    "Olive Oil & Avocado Oil",
+    "Deeply hydrate and soften dry strands"
+   ],
+   [
+    "Shea Butter",
+    "Smooths and protects without heaviness"
+   ],
+   [
+    "Vitamin E",
+    "Supports scalp and hair health with antioxidants"
+   ],
+   [
+    "Hydrolyzed Wheat Protein",
+    "Strengthens hair and improves texture over time"
+   ]
+  ],
+  "benefits": [
+   "Light, natural hold for everyday structure",
+   "Subtle shine that looks healthy, not greasy",
+   "Instantly improves dry, tired-looking hair",
+   "Softens, defines, and controls frizz",
+   "Suits relaxed styles or layering under stronger products"
+  ],
+  "howTo": [
+   "Apply to dry or slightly damp hair.",
+   "Warm a small amount between your palms.",
+   "Smooth over the surface, then work through the ends.",
+   "Air-dry for softness or blow-dry for more shape."
+  ],
+  "bestFor": "Dry, tired-looking hair",
+  "gallery": [
+   "/assets/products/define-cream/g1.webp",
+   "/assets/products/define-cream/g2.webp"
+  ],
+  "info": []
+ },
+ "styling-clay": {
+  "id": "stylingclay",
+  "name": "Styling Clay",
+  "tag": "Extreme hold",
+  "sub": "Extreme hold · Natural finish (water based)",
+  "hold": 3,
+  "shine": 4,
+  "approx": false,
+  "stock": false,
+  "description": "Lock in your style with our Styling Clay, crafted to deliver high hold with just a hint of natural shine",
+  "ingredients": [
+   [
+    "Beeswax",
+    "firm, pliable hold and natural shaping power"
+   ],
+   [
+    "Kaolin & Bentonite Clay",
+    "structure and control without heaviness"
+   ],
+   [
+    "Shea Butter & Mango Butter",
+    "softens and protects hair, prevents dryness"
+   ],
+   [
+    "Olive Oil & Avocado Oil",
+    "lightweight hydration and a natural finish"
+   ],
+   [
+    "Vitamin E",
+    "supports scalp and hair health with antioxidant protection"
+   ]
+  ],
+  "benefits": [
+   "Strong, reliable hold with light natural shine",
+   "Creamy texture that is easy to apply and rework",
+   "Balance of grit and moisture, so it is not overly dry",
+   "Suits classic, slick, or modern textured styles",
+   "Free of petroleum, parabens, and synthetic fillers"
+  ],
+  "howTo": [
+   "Start on dry hair for the strongest control.",
+   "Warm the clay thoroughly to soften it.",
+   "Work through roots and lengths in small passes.",
+   "Finish with fingers to keep the style flexible."
+  ],
+  "bestFor": "Structured flexible looks.",
+  "gallery": [
+   "/assets/products/styling-clay/g1.webp",
+   "/assets/products/styling-clay/g2.webp"
+  ],
+  "info": []
+ },
+ "spiking-mud": {
+  "id": "mud",
+  "name": "Spiking Mud",
+  "tag": "High hold",
+  "sub": "High hold · Ultimate matte",
+  "hold": 3,
+  "shine": 1,
+  "approx": false,
+  "stock": false,
+  "description": "Strong grip. Matte texture. Naturally bold.",
+  "ingredients": [
+   [
+    "Kaolin & Bentonite Clay",
+    "absorb excess oil, create matte texture"
+   ],
+   [
+    "Beeswax / Plant Wax",
+    "locks in hold with flexibility"
+   ],
+   [
+    "Shea Butter",
+    "adds conditioning without shine"
+   ],
+   [
+    "Natural Oils (Jojoba / Argan / Coconut)",
+    "nourish hair & scalp"
+   ],
+   [
+    "Aloe Vera Extract",
+    "maintains hydration balance"
+   ]
+  ],
+  "benefits": [
+   "100% naturally derived styling base",
+   "Strong, long-lasting hold",
+   "Dry matte finish - zero shine",
+   "Reworkable texture for natural movement",
+   "No parabens, silicones, or synthetic build-up",
+   "Suitable for short to medium hair"
+  ],
+  "howTo": [
+   "Use on dry short-to-medium hair.",
+   "Warm a small amount until evenly spread.",
+   "Push upward from the roots to create lift.",
+   "Twist or pinch individual sections for definition."
+  ],
+  "bestFor": "Short, rugged texture.",
+  "gallery": [
+   "/assets/products/spiking-mud/g1.webp",
+   "/assets/products/spiking-mud/g2.webp"
+  ],
+  "info": []
+ },
+ "moulding-gel": {
+  "id": "gel",
+  "name": "Moulding Gel",
+  "tag": "High hold",
+  "sub": "High hold · Wet look",
+  "hold": 5,
+  "shine": 5,
+  "approx": false,
+  "stock": false,
+  "description": "This plant-based hair styling gel delivers maximum hold and a sleek, high-gloss finish without harsh chemicals or residue.",
+  "ingredients": [
+   [
+    "Aloe Vera Juice",
+    "Hydrates and soothes the scalp"
+   ],
+   [
+    "Flaxseed Extract",
+    "Adds natural hold and shine"
+   ],
+   [
+    "Plant-based Glycerin",
+    "Locks in moisture"
+   ],
+   [
+    "Guar Gum / Natural Polymers",
+    "Provide strong, flexible hold"
+   ],
+   [
+    "Essential Oils / Natural Fragrance",
+    "Gives a subtle, refreshing scent"
+   ]
+  ],
+  "benefits": [
+   "Made with 100% naturally derived styling agents",
+   "Strong, long-lasting hold",
+   "High-shine, polished finish",
+   "Non-drying and non-flaking",
+   "Free of alcohol, silicones, and parabens",
+   "Suitable for all hair types"
+  ],
+  "howTo": [
+   "Apply to damp hair for an even, wet finish.",
+   "Rub a small amount across both hands.",
+   "Comb or rake through quickly, before it sets.",
+   "Let hair dry, and avoid touching it too much to keep the shine."
+  ],
+  "bestFor": "Sleek, glossy, set styles",
+  "gallery": [
+   "/assets/products/moulding-gel/g1.webp",
+   "/assets/products/moulding-gel/g2.webp"
+  ],
+  "info": [
+   "/assets/products/moulding-gel/i1.webp"
+  ]
+ },
+ "beard-moustache-wax": {
+  "id": "beardwax",
+  "name": "Beard & Moustache Wax",
+  "tag": "Strong hold",
+  "sub": "Strong hold · Medium shine",
+  "hold": 4,
+  "shine": 2,
+  "approx": true,
+  "stock": false,
+  "description": "Tame, Shape, and Style - Without the Toxins.",
+  "ingredients": [
+   [
+    "Beeswax",
+    "firm but flexible hold that also locks in moisture and keeps stray hairs in place"
+   ],
+   [
+    "Shea butter",
+    "conditions the beard and skin to prevent dryness and flaking"
+   ],
+   [
+    "Almond oil",
+    "softens coarse hair and calms the skin underneath"
+   ],
+   [
+    "Vitamin E",
+    "guards against damage and supports healthier, stronger growth"
+   ],
+   [
+    "Rosemary oil",
+    "stimulates follicles, supports thicker growth, and contributes a herbal scent"
+   ],
+   [
+    "Aloe vera extract",
+    "soothes irritation and keeps the beard feeling fresh and hydrated"
+   ]
+  ],
+  "benefits": [
+   "Provides a strong, natural hold for shaping and defining the beard",
+   "Contains no petroleum, parabens, or synthetic waxes",
+   "Light, non-greasy texture",
+   "Conditions and strengthens the beard while you style it",
+   "Smells subtle and natural, from botanical ingredients",
+   "Works for daily use and all beard types"
+  ],
+  "howTo": [
+   "Take a small amount on your fingertip.",
+   "Rub it between your palms until it softens.",
+   "Spread it evenly through the beard and shape as desired.",
+   "Comb or brush to refine the style."
+  ],
+  "bestFor": "Sculpting and holding beard shapes in place; Taming flyaways and frizz; Adding structure to medium or long beards; Shoppers who want a clean, non-toxic grooming product",
+  "gallery": [
+   "/assets/products/beard-moustache-wax/g1.webp",
+   "/assets/products/beard-moustache-wax/g2.webp"
+  ],
+  "info": []
+ },
+ "beard-butter": {
+  "id": "beardbutter",
+  "name": "Beard Butter",
+  "tag": "Light hold",
+  "sub": "Light hold · Smoother, softer, nourished beard",
+  "hold": 2,
+  "shine": 2,
+  "approx": true,
+  "stock": false,
+  "description": "Indulge your beard with intense nourishment and all-day control using our Beard Balm",
+  "ingredients": [
+   [
+    "Shea Butter",
+    "deep moisture for hair and skin, less dryness"
+   ],
+   [
+    "Cocoa Butter",
+    "adds richness and shine, helps prevent split ends"
+   ],
+   [
+    "Mango Butter",
+    "light but nourishing, smooths coarse hairs"
+   ],
+   [
+    "Almond Oil",
+    "conditions and softens, calms dry skin"
+   ],
+   [
+    "Avocado Oil",
+    "vitamins and fatty acids that support growth and guard against damage"
+   ],
+   [
+    "Olive Oil",
+    "strengthens strands with a natural luster and no greasiness"
+   ],
+   [
+    "Coconut Oil",
+    "locks in moisture, reduces breakage, combats flaking"
+   ],
+   [
+    "Rosemary Oil",
+    "stimulates follicles for fuller growth, with a herbal scent"
+   ],
+   [
+    "Vitamin E",
+    "antioxidant that helps repair and protect beard and skin"
+   ]
+  ],
+  "benefits": [
+   "Nourishes both the beard and the skin beneath it",
+   "Softens coarse, wiry hairs",
+   "Tames flyaways and offers light hold for shaping",
+   "Reduces dryness, flaking, and itch",
+   "Non-greasy with a smooth, buttery texture",
+   "Leaves a subtle, earthy scent"
+  ],
+  "howTo": [
+   "Scoop a small amount and warm it between your palms until it melts",
+   "Massage into the beard and the skin underneath, from roots to tips",
+   "Comb or style as desired",
+   "Use daily for best results"
+  ],
+  "bestFor": "Daily beard conditioning and styling; Medium to long beard maintenance; Men with dry, itchy, or unruly facial hair; Anyone seeking a clean, natural grooming product",
+  "gallery": [
+   "/assets/products/beard-butter/g1.webp",
+   "/assets/products/beard-butter/g2.webp"
+  ],
+  "info": []
+ }
+}

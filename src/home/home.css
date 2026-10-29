@@ -54,7 +54,13 @@ button { font: inherit; color: inherit }
 .link-underline { border-bottom: 1px solid var(--ink); padding-bottom: 2px; font-size: 14px }
 
 /* ── Offer bar + nav ───────────────────────────────────────── */
-.offer { background: var(--yellow); color: var(--ink); font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; text-align: center; padding: 10px 16px; font-weight: 500 }
+.offer { background: var(--yellow); color: var(--ink); font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding: 10px 0; font-weight: 500; overflow: hidden; white-space: nowrap }
+.offer__track { display: flex; width: max-content; animation: hx-marquee 32s linear infinite }
+.offer__track span { padding-right: 1.4em }
+.offer__track i { font-style: normal }
+.offer:hover .offer__track { animation-play-state: paused }
+.prepay { display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; padding: 8px 0 }
+.prepay input { accent-color: var(--ink); width: 18px; height: 18px }
 .nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px var(--gutter); background: rgba(238, 237, 232, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(20, 20, 18, .08) }
 .nav__logo { display: flex; align-items: center }
 .nav__logo img { height: 38px; width: auto; display: block }
@@ -318,22 +324,17 @@ button { font: inherit; color: inherit }
 .checkout { margin-top: 8px; font-size: 15px; padding: 15px }
 
 /* ── Onee + toast ──────────────────────────────────────────── */
-.onee { position: fixed; right: clamp(12px, 2vw, 28px); bottom: clamp(12px, 2vw, 24px); z-index: 80; display: flex; flex-direction: row-reverse; align-items: flex-end; gap: 10px; pointer-events: none }
-.onee__btn { pointer-events: auto; width: clamp(64px, 12vh, 96px); height: clamp(64px, 12vh, 96px); flex: none; border: none; background: var(--card); border-radius: 50%; padding: 6px; cursor: pointer; box-shadow: 0 16px 36px -18px rgba(20, 20, 18, .45); transition: transform .3s var(--spring) }
-.onee__btn:hover { transform: scale(1.08) rotate(-4deg) }
-.onee__host { display: block; width: 100%; height: 100% }
-.onee__bubble { pointer-events: auto; max-width: 240px; background: var(--ink); color: var(--paper); border-radius: 18px 18px 4px 18px; padding: 12px 16px; font-size: 14px; line-height: 1.4; margin-bottom: 40px; box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .5) }
-.onee__who { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--on-dark-dim); margin-bottom: 4px }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 100; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 12px 22px; font-size: 14px; box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .5); white-space: nowrap }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee__track { animation-duration: 120s !important }
   .reveal, .footer__lw { transition: none }
+  .offer__track { animation-duration: 160s !important }
 }
 
 /* ── Mobile ────────────────────────────────────────────────── */
 @media (max-width: 720px) {
-  .offer { font-size: 10px; letter-spacing: .08em; padding: 8px 12px }
+  .offer { font-size: 10px; letter-spacing: .08em; padding: 8px 0 }
   .nav { gap: 10px; padding: 10px var(--gutter) }
   .nav__logo img { height: 30px }
   .nav__links { display: none }
@@ -378,7 +379,126 @@ button { font: inherit; color: inherit }
   .drawer { width: 100vw }
   .drawer__head, .drawer__bundle, .drawer__foot { padding-left: 18px; padding-right: 18px }
   .drawer__items { padding: 8px 18px }
-  .onee__btn { width: 56px; height: 56px }
-  .onee__bubble { max-width: 190px; font-size: 13px; margin-bottom: 24px }
-  .toast { max-width: calc(100vw - 32px); white-space: normal; text-align: center; border-radius: 18px }
+      .toast { max-width: calc(100vw - 32px); white-space: normal; text-align: center; border-radius: 18px }
+}
+
+@media (max-width: 720px) {
+  .nav { flex-wrap: wrap }
+  .nav__links { display: flex; order: 3; width: 100%; flex-wrap: nowrap; justify-content: flex-start; gap: 18px; overflow-x: auto; white-space: nowrap; font-size: 13px; padding-bottom: 2px; scrollbar-width: none }
+  .nav__links::-webkit-scrollbar { display: none }
+}
+.card__add:disabled { opacity: .45; cursor: not-allowed } .card__add:disabled:hover { background: transparent; color: var(--ink) }
+a.card__name { color: var(--ink) } a.card__media { display: grid }
+
+/* WhatsApp button */
+.fab { position: fixed; right: clamp(12px, 2vw, 24px); bottom: clamp(12px, 2vw, 24px); z-index: 85; display: flex; flex-direction: column; align-items: flex-end; gap: 10px }
+.fab__shop { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); color: var(--ink); border-radius: 999px; padding: 12px 18px 12px 14px; font-family: var(--sans); font-size: 14px; font-weight: 600; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .5); transition: transform .3s var(--spring) }
+.fab__shop:hover { color: var(--ink); transform: translateY(-2px) scale(1.04) }
+.wa { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; border-radius: 999px; padding: 12px 18px 12px 14px; font-family: var(--sans); font-size: 14px; font-weight: 600; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .5); transition: transform .3s var(--spring), box-shadow .3s }
+.wa:hover { color: #fff; transform: translateY(-2px) scale(1.04); box-shadow: 0 18px 36px -14px rgba(0, 0, 0, .55) }
+@media (max-width: 720px) { .wa, .fab__shop { padding: 13px } .wa span, .fab__shop span { display: none } }
+
+/* ── In motion ─────────────────────────────────────────────── */
+.motion { padding: var(--section-y) var(--gutter); display: flex; flex-direction: column; gap: 48px }
+.motion .lede { max-width: 340px }
+.films { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px }
+.film { display: flex; flex-direction: column; gap: 14px }
+.film__frame { position: relative; aspect-ratio: 16 / 10; border-radius: 22px; overflow: hidden; background: var(--ink); box-shadow: 0 30px 60px -36px rgba(20, 20, 18, .6) }
+.film__frame video { width: 100%; height: 100%; object-fit: cover; display: block }
+.film__tag { position: absolute; left: 14px; bottom: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper); background: rgba(10, 10, 9, .5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 999px; padding: 6px 12px }
+.film__link { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--ink); border-radius: 999px; padding: 13px 22px; font-size: 14px; font-weight: 500; transition: background .3s, color .3s }
+.film__link:hover { background: var(--yellow) }
+
+/* ── Instagram ─────────────────────────────────────────────── */
+.ig { padding: 0 var(--gutter) var(--section-y); display: flex; flex-direction: column; gap: 40px }
+.ig__grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 20px; align-items: stretch }
+.ig__profile { background: var(--ink); color: var(--paper); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 22px; justify-content: center; height: 100% }
+.ig__top { display: flex; align-items: center; gap: 16px }
+.ig__avatar { width: 76px; height: 76px; border-radius: 50%; background: var(--paper); display: grid; place-items: center; padding: 4px; box-shadow: 0 0 0 3px var(--yellow); flex: none }
+.ig__avatar img { width: 100%; height: auto }
+.ig__id { display: flex; flex-direction: column; gap: 4px }
+.ig__id b { font-size: 18px; font-weight: 600 }
+.ig__id span { font-size: 13px; color: var(--on-dark-dim) }
+.ig__profile p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--on-dark-muted) }
+.ig__follow { text-align: center; padding: 14px 22px; font-size: 14px }
+.ig__tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px }
+.ig__tile { position: relative; display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: var(--card) }
+.ig__tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .9s var(--spring) }
+.ig__tile span { position: absolute; inset: auto 0 0 0; padding: 36px 12px 12px; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: linear-gradient(transparent, rgba(10, 10, 9, .7)); opacity: 0; transition: opacity .3s }
+.ig__tile:hover img { transform: scale(1.07) }
+.ig__tile:hover span { opacity: 1 }
+@media (max-width: 860px) { .ig__grid { grid-template-columns: 1fr } .ig__tiles { grid-template-columns: repeat(2, 1fr) } }
+
+
+/* ── Home reviews ──────────────────────────────────────────── */
+.hrv { padding: var(--section-y) var(--gutter); display: flex; flex-direction: column; gap: 48px }
+.hrv__avg { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted) }
+.hrv__avg b { font-family: var(--serif); font-weight: 400; font-size: 56px; line-height: 1; color: var(--ink) }
+.rv-stars { position: relative; display: inline-block; letter-spacing: 2px; line-height: 1; font-size: 16px }
+.rv-stars > span:first-child { color: rgba(20, 20, 18, .2) }
+.rv-stars > span:last-child { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: var(--ink) }
+
+.look__row { display: flex; gap: 10px; align-items: stretch }
+.look__row .look__add { flex: 1 }
+.look__go { flex: none; width: 50px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(238, 237, 232, .3); color: var(--paper); transition: background .3s, color .3s, border-color .3s, transform .3s }
+.look__go:hover { background: var(--yellow); color: var(--ink); border-color: var(--yellow); transform: rotate(45deg) }
+.pback__go { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font-size: 15px; transition: background .3s }
+.pback__go:hover { background: var(--yellow) }
+
+/* ── Founder ───────────────────────────────────────────────── */
+.fd { position: relative; overflow: hidden; padding: var(--section-y) var(--gutter); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 5vw, 80px); align-items: center; max-width: 1320px; margin: 0 auto }
+.fd__bg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: var(--serif); font-size: clamp(120px, 24vw, 380px); line-height: 1; letter-spacing: -.02em; color: transparent; -webkit-text-stroke: 1px rgba(20, 20, 18, .14); white-space: nowrap; pointer-events: none; user-select: none }
+.fd__visual { position: relative; width: min(100%, 460px); aspect-ratio: 595 / 867; justify-self: center }
+.fd__sun { position: absolute; left: 50%; top: 40%; width: 92%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: var(--yellow) }
+.fd__ring { position: absolute; left: 50%; top: 40%; width: 108%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; border: 1px dashed rgba(20, 20, 18, .35); animation: fd-spin 40s linear infinite }
+@keyframes fd-spin { to { transform: translate(-50%, -50%) rotate(360deg) } }
+.fd__visual img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block }
+.fd__badge { position: absolute; right: -4%; bottom: 14%; transform: rotate(-6deg); background: var(--ink); color: var(--yellow); border-radius: 999px; padding: 9px 18px; font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase }
+.fd__copy { position: relative; display: flex; flex-direction: column; gap: 20px; align-items: flex-start }
+.fd__name { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 8vw, 132px); line-height: .9; letter-spacing: -.02em }
+.fd__name em { display: block; font-style: italic; background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 90%, transparent 90%); width: fit-content; padding-right: .08em }
+.fd__role { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted) }
+.fd__quote { margin: 8px 0 0; max-width: 460px; padding-left: 20px; border-left: 3px solid var(--yellow); font-family: var(--serif); font-size: clamp(22px, 2.4vw, 32px); line-height: 1.2 }
+.fd__more { padding: 13px 24px; font-size: 14px; margin-top: 6px }
+@media (max-width: 860px) { .fd { grid-template-columns: 1fr } .fd__visual { width: min(100%, 360px) } .fd__badge { right: 0 } }
+@media (prefers-reduced-motion: reduce) { .fd__ring { animation: none } }
+
+.footer__col--contact { max-width: 280px }
+.footer__text { padding: 6px 0; font-size: 14px; line-height: 1.5; color: #8f8c83 }
+
+.footer__about { display: flex; flex-direction: column; gap: 8px; max-width: 420px }
+.footer__about b { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .14em; color: var(--paper) }
+.footer__about p { margin: 0; font-size: 14px; line-height: 1.6; color: #8f8c83 }
+
+/* ── Review rail ───────────────────────────────────────────── */
+.hrv { padding: var(--section-y) 0; gap: 48px }
+.hrv__head { padding-inline: var(--gutter) }
+.rail { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent) }
+.rail__track { display: flex; width: max-content; will-change: transform; animation: hx-marquee 50s linear infinite }
+.rail:hover .rail__track { animation-play-state: paused }
+.rail__set { display: flex; gap: 20px; padding-right: 20px }
+.rcard { contain: layout paint; flex: none; width: clamp(320px, 84vw, 540px); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 18px; padding: 18px; border-radius: 30px; background: var(--card); box-shadow: 0 0 0 1px rgba(20, 20, 18, .08), 0 24px 50px -32px rgba(20, 20, 18, .4) }
+.rcard__body { display: flex; flex-direction: column; gap: 10px; padding: 6px 4px 4px 8px; min-width: 0 }
+.rcard__q { font-family: var(--serif); font-size: 72px; line-height: .7; height: 34px; color: var(--ink) }
+.rcard__who { display: flex; align-items: center; gap: 12px }
+.rcard__avatar { width: 38px; height: 38px; flex: none; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 600; font-size: 16px }
+.rcard__text { margin: 0; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; line-height: 1.22; letter-spacing: -.01em; text-wrap: balance }
+.rcard__foot { margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(20, 20, 18, .14); font-size: 13px; color: var(--muted) }
+.rcard__foot a { color: var(--ink); border-bottom: 1px solid var(--ink) }
+.rcard__foot a:hover { background: var(--yellow) }
+.rcard__media { position: relative; border-radius: 22px; overflow: hidden; background: var(--paper-2); aspect-ratio: 4 / 5; display: block }
+.rcard__media img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .8s var(--spring) }
+.rcard:hover .rcard__media img { transform: scale(1.06) }
+.rcard__media span { position: absolute; left: 10px; bottom: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 5px 10px }
+@media (max-width: 520px) { .rcard { grid-template-columns: 1fr; } .rcard__media { aspect-ratio: 16 / 10 } }
+@media (prefers-reduced-motion: reduce) { .rail { overflow-x: auto } .rail__track { animation: none } .rail__set[aria-hidden] { display: none } }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0 }
+
+/* Touch targets: at least ~40px tall on phones */
+@media (max-width: 720px) {
+  .nav__links a { padding: 12px 0 }
+  .rcard__foot a { display: inline-block; padding: 10px 0 }
+  .footer__link { padding: 10px 0 }
+  .ig__follow, .fd__more, .film__link { min-height: 44px }
 }

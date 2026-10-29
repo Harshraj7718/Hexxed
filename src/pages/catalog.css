@@ -1,0 +1,112 @@
+/* Catalog — beige paper, hairline borders, uppercase micro-type. */
+.ct { --bg: var(--paper); --mut: var(--muted); background: var(--bg); color: var(--ink); font-family: var(--sans); min-height: 100vh; padding: 0 clamp(16px, 5vw, 80px) }
+.ct a { color: inherit }
+.ct button { font-family: var(--sans) }
+.ct-head { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 26px 0 22px; border-bottom: 1px solid var(--ink); text-transform: uppercase; font-size: 12px; letter-spacing: .04em }
+.ct-logo img { height: 34px; width: auto; display: block }
+.ct-nav { display: flex; gap: clamp(18px, 3vw, 40px) }
+.ct-nav a { white-space: nowrap; padding-bottom: 3px; border-bottom: 1px solid transparent }
+.ct-nav a:hover, .ct-nav a[aria-current] { border-color: var(--ink) }
+.ct-acct { display: flex; gap: 28px; justify-content: flex-end }
+.ct-acct button { background: none; border: none; padding: 0; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; cursor: pointer }
+.ct-acct button:hover { text-decoration: underline }
+
+.ct-main { padding: clamp(40px, 6vw, 80px) 0 }
+.ct-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--mut); margin-bottom: 14px }
+.ct-title { margin: 0 0 20px; font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 8.6vw, 128px); line-height: .95; letter-spacing: -.015em; display: flex; flex-wrap: wrap; gap: 0 .22em }
+.ct-w { display: inline-block; overflow: hidden; padding: 0 .04em .1em }
+.ct-w--hl em { font-style: italic; background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 90%, transparent 90%); padding: 0 .06em }
+.ct-lede { margin: 0 0 32px; max-width: 520px; font-size: 16px; line-height: 1.6; color: var(--mut) }
+.ct-bar { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: clamp(32px, 5vw, 64px) }
+.ct-tabs { display: flex; gap: clamp(18px, 3vw, 40px); flex-wrap: wrap }
+.ct-tabs button { background: none; border: none; border-bottom: 1px solid transparent; padding: 0 0 4px; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; color: var(--mut); cursor: pointer; transition: color .3s }
+.ct-tabs button:hover { color: var(--ink) }
+.ct-tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); box-shadow: 0 3px 0 var(--yellow) }
+.ct-filter { position: relative }
+.ct-filter > button { background: none; border: none; padding: 0; font-size: 14px; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; letter-spacing: .02em }
+.ct-filter em { font-style: normal; color: var(--mut) }
+.ct-filter ul { position: absolute; right: 0; top: calc(100% + 12px); z-index: 20; list-style: none; margin: 0; padding: 6px 0; min-width: 200px; background: var(--bg); border: 1px solid var(--ink) }
+.ct-filter li button { width: 100%; text-align: left; background: none; border: none; padding: 10px 16px; font-size: 13px; text-transform: uppercase; cursor: pointer }
+.ct-filter li button:hover, .ct-filter li button[aria-selected="true"] { background: var(--yellow) }
+
+/* Staggered three-column grid */
+.ct-grid { column-count: 3; column-gap: 24px }
+.ct-card { border: 1px solid var(--ink); display: flex; flex-direction: column; background: var(--bg); break-inside: avoid; margin-bottom: 24px }
+.ct-media { display: grid; place-items: center; margin: 22px 22px 6px; background: var(--card); overflow: hidden }
+.ct-media img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform 1s var(--spring) }
+.ct-card:hover .ct-media img { transform: scale(1.06) }
+.ct-name { margin: 14px 18px 0; text-align: center; font-family: var(--sans); font-weight: 400; font-size: 13px; letter-spacing: .02em; text-transform: uppercase; line-height: 1.35 }
+.ct-sub { margin: 4px 18px 0; text-align: center; font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .06em }
+.ct-row { display: flex; align-items: center; justify-content: center; position: relative; padding: 14px 18px 18px }
+.ct-row b { font-size: 17px; font-weight: 600 }
+.ct-heart { position: absolute; right: 18px; bottom: 10px; background: none; border: none; cursor: pointer; padding: 0; color: var(--ink); transition: transform .3s }
+.ct-heart:hover { transform: scale(1.15) }
+.ct-heart[data-on] { color: var(--ink) }
+.ct-heart[data-on] svg { fill: var(--yellow); stroke: var(--ink) }
+.ct-actions { display: grid; grid-template-columns: 1fr 98px; border-top: 1px solid var(--ink) }
+.ct-add { border: none; padding: 16px 12px; font-size: 16px; text-transform: uppercase; letter-spacing: .02em; cursor: pointer; transition: background .3s, color .3s }
+.ct-add { background: var(--yellow) }
+.ct-add:hover:not(:disabled) { background: var(--ink); color: var(--yellow) }
+.ct-add:disabled { color: var(--mut); background: transparent; cursor: not-allowed }
+.ct-go { border-left: 1px solid var(--ink); display: grid; place-items: center; transition: background .3s, color .3s }
+.ct-go:hover { background: var(--ink); color: var(--yellow) }
+.ct-empty { column-span: all; margin: 0; color: var(--mut); text-transform: uppercase; font-size: 13px; letter-spacing: .06em }
+
+.ct-pages { display: flex; justify-content: center; gap: 14px; margin-top: clamp(56px, 8vw, 110px); align-items: baseline }
+.ct-pages button { background: none; border: none; cursor: pointer; font-size: 20px; color: var(--mut); padding: 4px }
+.ct-pages button[aria-current] { color: var(--ink); font-size: 28px; font-weight: 600; background: linear-gradient(transparent 62%, var(--yellow) 62%) }
+
+/* Footer */
+.ct-foot { border-top: 1px solid var(--ink); margin-top: 24px }
+.ct ::selection { background: var(--yellow); color: var(--ink) }
+.ct-foot__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--ink) }
+.ct-foot__links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; align-content: center; padding: 56px 24px 56px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .04em }
+.ct-foot__links a:hover { text-decoration: underline }
+.ct-foot__brand { border-inline: 1px solid var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 56px 24px }
+.ct-foot__brand img { height: 40px; width: auto }
+.ct-social { display: flex; gap: 22px; font-family: var(--mono); font-size: 12px }
+.ct-foot__sub { padding: 56px 0 56px clamp(20px, 3vw, 40px); display: flex; flex-direction: column; gap: 24px; justify-content: center }
+.ct-foot__sub h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 44px); text-transform: uppercase; letter-spacing: .01em }
+.ct-foot__sub label { display: flex; align-items: center; border-bottom: 1px solid var(--ink); max-width: 320px }
+.ct-foot__sub input { flex: 1; min-width: 0; background: none; border: none; outline: none; font-family: var(--sans); font-size: 13px; padding: 10px 0; color: var(--ink) }
+.ct-foot__sub button { background: none; border: none; cursor: pointer; color: var(--ink) }
+.ct-foot__legal { display: flex; justify-content: center; gap: clamp(20px, 6vw, 90px); flex-wrap: wrap; padding: 22px 0 30px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--mut) }
+
+@media (max-width: 960px) {
+  .ct-grid { column-count: 2 }
+  .ct-head { grid-template-columns: auto 1fr; row-gap: 14px }
+  .ct-nav { grid-column: 1 / -1; order: 3; overflow-x: auto; gap: 22px; scrollbar-width: none }
+  .ct-foot__grid { grid-template-columns: 1fr }
+  .ct-foot__brand { border-inline: none; border-block: 1px solid var(--ink) }
+  .ct-foot__links, .ct-foot__sub { padding-inline: 0 }
+}
+@media (max-width: 560px) {
+  .ct-grid { column-count: 1 }
+  .ct-head { grid-template-columns: 1fr auto }
+  .ct-acct { gap: 16px }
+  .ct-media { margin: 16px 16px 4px }
+}
+
+.ct-quiz { margin: 0 calc(-1 * clamp(16px, 5vw, 80px)); padding-top: 24px }
+.ct-quiz .match { padding-top: 0 }
+
+.ct-main { position: relative }
+.ct-art { display: none }
+@media (min-width: 900px) { .ct-art { display: block; position: absolute; right: 2%; top: clamp(0px, 1vw, 20px); width: clamp(180px, 20vw, 300px); pointer-events: none } }
+
+.ct-social a:hover { text-decoration: underline }
+.ct-foot__legal a:hover { text-decoration: underline }
+
+.ct-addr { display: flex; flex-direction: column; gap: 4px; align-items: center; text-align: center; font-style: normal; font-size: 11px; line-height: 1.5; text-transform: uppercase; letter-spacing: .03em; color: var(--mut) }
+.ct-addr a { color: var(--ink) }
+.ct-addr a:hover { text-decoration: underline }
+
+.ct-about { max-width: 360px; text-align: center; display: flex; flex-direction: column; gap: 6px }
+.ct-about b { font-size: 11px; letter-spacing: .14em; font-weight: 500 }
+.ct-about p { margin: 0; font-size: 12px; line-height: 1.6; color: var(--mut) }
+
+@media (max-width: 960px) {
+  .ct-nav a, .ct-acct button, .ct-acct span, .ct-tabs button, .ct-filter > button { padding-top: 11px; padding-bottom: 11px }
+  .ct-heart { padding: 8px; margin: -8px }
+  .ct-foot__links a, .ct-addr a { display: inline-block; padding: 10px 0 }
+}

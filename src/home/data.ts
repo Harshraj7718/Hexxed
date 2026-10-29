@@ -1,10 +1,13 @@
 export const PRICE = 599
 export const MRP = 799
 
-export type ProductId = 'clay' | 'define' | 'cream' | 'matte'
+import details from './productDetails.json'
+
+export type ProductId = 'clay' | 'define' | 'cream' | 'matte' | 'sculpting' | 'wax' | 'texture' | 'stylingclay' | 'mud' | 'gel' | 'beardwax' | 'beardbutter'
 
 export type Product = {
   id: ProductId
+  slug: string
   name: string
   tag: string
   sub: string
@@ -18,12 +21,31 @@ export type Product = {
   stock: boolean
 }
 
-export const PRODUCTS: Product[] = [
-  { id: 'clay', name: 'Clay Pomade', tag: 'Extreme hold', sub: 'Extreme hold · Natural finish (oil based)', pitch: 'The all-day architect. Height and structure that won’t quit.', hold: 5, shine: 3, img: '/assets/clay-pomade.png', accent: '#4a3c34', stock: true },
-  { id: 'define', name: 'Define Cream', tag: 'Light hold', sub: '2x softness & smoothness', pitch: 'Softness on command. Curls and waves that move like they should.', hold: 0.5, shine: 0.7, approx: true, img: '/assets/define-cream.png', accent: '#2c7a6e', stock: true },
-  { id: 'cream', name: 'Cream Pomade', tag: 'High hold', sub: 'High hold · High shine', pitch: 'Shine that means business. Slick-backs, side parts, sharp edges.', hold: 5, shine: 4, img: '/assets/cream-pomade.png', accent: '#4636a6', stock: true },
-  { id: 'matte', name: 'Matte Paste', tag: 'High hold', sub: 'High hold · Matte finish', pitch: 'Zero shine, full grip. The “I just woke up like this” lie.', hold: 5, shine: 1, img: '/assets/matte-paste.webp', accent: '#141412', stock: true },
-]
+const ACCENT: Partial<Record<ProductId, string>> = { clay: '#4a3c34', define: '#2c7a6e', cream: '#4636a6', matte: '#141412' }
+const PITCH: Partial<Record<ProductId, string>> = {
+  clay: 'The all-day architect. Height and structure that won’t quit.',
+  define: 'Softness on command. Curls and waves that move like they should.',
+  cream: 'Shine that means business. Slick-backs, side parts, sharp edges.',
+  matte: 'Zero shine, full grip. The “I just woke up like this” lie.',
+}
+
+export type ProductDetail = (typeof details)[keyof typeof details]
+export const DETAILS = details as Record<string, ProductDetail>
+
+export const PRODUCTS: Product[] = Object.entries(details).map(([slug, d]) => ({
+  id: d.id as ProductId,
+  slug,
+  name: d.name,
+  tag: d.tag,
+  sub: d.sub,
+  pitch: PITCH[d.id as ProductId] ?? d.sub,
+  hold: d.hold,
+  shine: d.shine,
+  approx: d.approx || undefined,
+  img: d.gallery[0] ?? null,
+  accent: ACCENT[d.id as ProductId] ?? '#141412',
+  stock: d.stock,
+}))
 
 export const productById = (id: ProductId) => PRODUCTS.find(p => p.id === id)!
 
@@ -56,7 +78,7 @@ export const QUIZ: { q: string; o: string[] }[] = [
   { q: 'How long does it need to last?', o: ['A few hours', 'The full workday', 'Wedding-level, all night'] },
 ]
 
-export const WHY: Record<ProductId, string> = {
+export const WHY: Partial<Record<ProductId, string>> = {
   matte: 'Full grip with zero shine — texture that reads effortless, even when it isn’t.',
   clay: 'Extreme hold with a natural finish. Your look, locked in, without the helmet effect.',
   cream: 'High hold and high shine for clean, sharp, slicked styles that last.',
@@ -80,9 +102,9 @@ export const STATS: { count: number; dec: number; big: string; suffix: string; s
 ]
 
 export const LOOKS: { img: string; pos: string; tag: string; title: string; note: string; product: string; id: ProductId }[] = [
-  { img: '/assets/look-quiff.png', pos: 'center 30%', tag: 'Extreme hold', title: 'The Textured Quiff', note: 'Height up front, tight fade, zero flop by 6 pm.', product: 'CLAY POMADE', id: 'clay' },
-  { img: '/assets/look-crop.png', pos: 'center 20%', tag: 'Matte finish', title: 'The Messy Crop', note: 'Piece-y, undone, deliberately effortless.', product: 'MATTE PASTE', id: 'matte' },
-  { img: '/assets/look-curls.png', pos: 'center 25%', tag: 'Soft hold', title: 'The Curl Cloud', note: 'Defined curls, no crunch, no frizz.', product: 'DEFINE CREAM', id: 'define' },
+  { img: '/assets/look-quiff.webp', pos: 'center 30%', tag: 'Extreme hold', title: 'The Textured Quiff', note: 'Height up front, tight fade, zero flop by 6 pm.', product: 'CLAY POMADE', id: 'clay' },
+  { img: '/assets/look-crop.webp', pos: 'center 20%', tag: 'Matte finish', title: 'The Messy Crop', note: 'Piece-y, undone, deliberately effortless.', product: 'MATTE PASTE', id: 'matte' },
+  { img: '/assets/look-curls.webp', pos: 'center 25%', tag: 'Soft hold', title: 'The Curl Cloud', note: 'Defined curls, no crunch, no frizz.', product: 'DEFINE CREAM', id: 'define' },
 ]
 
 export const MARQUEE_WORDS = ['Control', 'Texture', 'Movement', 'Finish']

@@ -121,7 +121,7 @@ export function Standard() {
   )
 }
 
-export function OriginStory() {
+export function OriginStory({ more = true }: { more?: boolean }) {
   return (
     <section id="story" className="story">
       <Reveal>
@@ -129,7 +129,7 @@ export function OriginStory() {
         <h2 className="h2">Born from a <span className="hl">bad hair decade.</span></h2>
         <p>This never started as a business. It started as frustration. For years, every shelf in India offered the same deal: one product for everyone. No thought for hair type. No options for different styles. No real performance.</p>
         <p>So we stopped searching and started building — the range we always wished existed.</p>
-        <a href="#story" className="story__more">Read the full story →</a>
+        {more && <a href="/story.html" className="story__more">Read the full story →</a>}
       </Reveal>
     </section>
   )

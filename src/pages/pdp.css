@@ -1,0 +1,164 @@
+/* Product page — warm paper, sage and espresso, generous whitespace. */
+.pd { --bg: var(--paper); --ink: #141412; --mut: var(--muted); --line: rgba(20, 20, 18, .18); --sage: var(--yellow); --sage-d: var(--ink); --card: var(--paper-2); background: var(--bg); color: var(--ink); font-family: var(--sans); padding-bottom: 0; overflow-x: clip }
+.pd a { color: inherit }
+.pd-icon { width: 20px; height: 20px; flex: none }
+.pd-h { margin: 0 0 32px; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: .01em; line-height: 1.05 }
+.pd-h--c { text-align: center; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .2em; text-transform: uppercase; font-family: var(--serif) }
+.pd-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mut); margin-bottom: 10px }
+
+.pd-crumbs { padding: 22px var(--gutter) 0; font-size: 12px; color: var(--mut); display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+.pd-crumbs i { font-style: normal }
+.pd-crumbs a:hover { color: var(--ink) }
+
+/* Top */
+.pd-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); padding: 28px var(--gutter) 56px; max-width: 1280px; margin: 0 auto }
+.pd-gallery { min-width: 0 }
+.pd-main { position: relative; aspect-ratio: 1; background: var(--card); overflow: hidden; cursor: zoom-in }
+.pd-main__img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .5s var(--spring) }
+.pd-main:hover .pd-main__img, .pd-main[data-zoom] .pd-main__img { transform: scale(1.8) }
+.pd-main__zoom { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: none; background: #fff; color: var(--ink); font-size: 18px; cursor: pointer; box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .4) }
+.pd-thumbs { display: flex; align-items: center; gap: 12px; margin-top: 14px }
+.pd-thumb { width: 84px; height: 72px; background: var(--card); border: 1px solid transparent; padding: 4px; cursor: pointer; opacity: .7; transition: opacity .3s, border-color .3s }
+.pd-thumb[data-on] { border-color: var(--ink); opacity: 1 }
+.pd-thumb img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply }
+.pd-arrow { background: none; border: none; color: var(--ink); font-size: 18px; cursor: pointer; padding: 8px }
+.pd-arrow:hover { color: var(--ink); opacity: .6 }
+
+.pd-buy { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; padding-top: 4px }
+.pd-eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--mut) }
+.pd-title { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4vw, 56px); letter-spacing: .08em; text-transform: uppercase; line-height: 1.05 }
+.pd-rating { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: var(--mut) }
+.pd-stars { position: relative; display: inline-block; letter-spacing: 2px; line-height: 1 }
+.pd-stars__bg { color: rgba(20, 20, 18, .2) }
+.pd-stars__fg { -webkit-text-stroke: .6px var(--ink); position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: var(--ink) }
+.pd-price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap }
+.pd-price b { font-size: 22px; font-weight: 500 }
+.pd-price s { color: var(--mut); font-size: 15px }
+.pd-price span { font-size: 12px; color: var(--mut) }
+.pd-lede { margin: 0; max-width: 440px; font-size: 14px; line-height: 1.7; color: var(--mut) }
+.pd-buy hr { width: 32px; border: none; border-top: 1px solid var(--line); margin: 4px 0 }
+.pd-feats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13px }
+.pd-feats li { display: flex; align-items: center; gap: 12px; color: var(--ink) }
+.pd-opts { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 6px }
+.pd-chip { display: inline-block; background: var(--yellow); border: 1px solid var(--ink); padding: 11px 22px; font-size: 13px }
+.pd-qty { display: inline-flex; align-items: center; border: 1px solid var(--line) }
+.pd-qty button { width: 40px; height: 42px; background: none; border: none; cursor: pointer; font-size: 18px; color: var(--ink) }
+.pd-qty button:hover { background: var(--yellow) }
+.pd-qty span { min-width: 36px; text-align: center; font-size: 14px }
+.pd-add { width: min(100%, 420px); background: var(--sage); color: var(--ink); border: none; padding: 17px 24px;font-weight:600; font-family: var(--sans); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .3s }
+.pd-add:hover { background: var(--ink); color: var(--yellow) }
+.pd-buynow { width: min(100%, 420px); background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 15px 24px; font-family: var(--sans); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .3s, color .3s }
+.pd-buynow:hover { background: var(--ink); color: var(--bg) }
+.pd-note { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--mut) }
+.pd-note .pd-icon { width: 16px; height: 16px }
+.pd-soldout { max-width: 420px; font-size: 14px; line-height: 1.6; color: var(--mut); border: 1px dashed var(--line); padding: 16px 18px }
+
+/* Spec strip */
+.pd-spec { max-width: 1280px; margin: 0 auto; padding: 0 var(--gutter) }
+.pd-spec { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--card); margin-inline: var(--gutter); max-width: none; padding: 26px 0 }
+.pd-spec > div { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; padding: 6px 16px; border-left: 1px solid var(--line) }
+.pd-spec > div:first-child { border-left: none }
+.pd-spec span { font-size: 11px; letter-spacing: .22em; text-transform: uppercase }
+.pd-spec b { font-family: var(--serif); font-weight: 400; font-size: 24px }
+.pd-spec em { font-style: normal; font-size: 12px; color: var(--mut) }
+
+/* Tabs */
+.pd-tabs { position: relative; max-width: 1100px; margin: 0 auto; padding: 72px var(--gutter); display: grid; grid-template-columns: 200px minmax(0, 1fr) 180px; gap: 48px }
+.pd-tablist { display: flex; flex-direction: column; gap: 4px; align-self: start }
+.pd-tablist button { text-align: left; background: none; border: none; border-bottom: 1px solid transparent; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mut); padding: 10px 0; cursor: pointer; transition: color .3s }
+.pd-tablist button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); box-shadow: 0 3px 0 var(--yellow) }
+.pd-tablist button:hover { color: var(--ink) }
+.pd-tabpanel { font-size: 14px; line-height: 1.8; color: var(--ink); max-width: 560px }
+.pd-tabpanel p { margin: 0 0 16px }
+.pd-tabpanel ul, .pd-tabpanel ol { margin: 0 0 16px; padding-left: 20px; color: var(--mut) }
+.pd-tabpanel li { margin-bottom: 6px }
+.pd-tabpanel dl { margin: 0 }
+.pd-tabpanel dl > div { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding: 12px 0 }
+.pd-tabpanel dt { font-weight: 500 }
+.pd-tabpanel dd { margin: 0; color: var(--mut) }
+.pd-quote { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.2 }
+.pd-sprig { width: 100%; color: var(--mut); align-self: center; opacity: .7 }
+
+/* Info images */
+.pd-info { max-width: 1000px; margin: 0 auto; padding: 0 var(--gutter) 72px }
+.pd-info__grid { display: flex; flex-direction: column; gap: 24px }
+.pd-info__img { width: 100%; height: auto; display: block; will-change: clip-path }
+
+/* Reviews */
+.pd-reviews { max-width: 1100px; margin: 0 auto; padding: 24px var(--gutter) 88px; scroll-margin-top: 80px }
+.pd-rv { display: grid; grid-template-columns: 240px minmax(0, 1fr) 300px; gap: clamp(28px, 4vw, 56px); align-items: start }
+.pd-rv__sum { display: flex; flex-direction: column; gap: 8px }
+.pd-rv__avg { font-family: var(--serif); font-size: 72px; line-height: 1 }
+.pd-rv__count { font-size: 12px; color: var(--mut) }
+.pd-rv__bars { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; font-size: 12px; color: var(--mut) }
+.pd-rv__bars > div { display: grid; grid-template-columns: 26px 1fr 22px; gap: 10px; align-items: center }
+.pd-rv__track { height: 4px; background: var(--line); overflow: hidden }
+.pd-rv__track i { display: block; height: 100%; background: var(--ink) }
+.pd-rv__list { display: flex; flex-direction: column }
+.pd-rv__empty { margin: 0; font-size: 14px; line-height: 1.7; color: var(--mut); border-top: 1px solid var(--line); padding-top: 20px }
+.pd-rv__item { border-top: 1px solid var(--line); padding: 20px 0 }
+.pd-rv__item header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+.pd-rv__item b { font-weight: 500; font-size: 14px }
+.pd-rv__item p { margin: 0 0 8px; font-size: 14px; line-height: 1.7; color: var(--ink) }
+.pd-rv__item footer { font-size: 12px; color: var(--mut) }
+.pd-rv__form { display: flex; flex-direction: column; gap: 12px; background: var(--card); padding: 22px }
+.pd-rv__form input, .pd-rv__form textarea { font-family: var(--sans); font-size: 14px; background: var(--bg); border: 1px solid var(--line); padding: 12px 14px; color: var(--ink); resize: vertical }
+.pd-rv__form input:focus, .pd-rv__form textarea:focus { outline: 1px solid var(--ink) }
+.pd-pick { display: flex; gap: 4px }
+.pd-pick button { background: none; border: none; font-size: 26px; line-height: 1; cursor: pointer; color: rgba(20, 20, 18, .22); padding: 0 2px }
+.pd-pick button[data-on] { color: var(--ink); text-shadow: 0 0 0 var(--yellow); -webkit-text-stroke: 0 }
+.pd-rv__form .pd-add { width: 100% }
+
+/* Also love */
+.pd-also { max-width: 1280px; margin: 0 auto; padding: 24px var(--gutter) 88px }
+.pd-railwrap { display: flex; align-items: center; gap: 8px; margin-top: 36px }
+.pd-rail { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; flex: 1; padding-bottom: 4px }
+.pd-rail::-webkit-scrollbar { display: none }
+.pd-card { flex: 0 0 clamp(200px, 22vw, 270px); scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center }
+.pd-card__img { width: 100%; aspect-ratio: 1.15; background: var(--card); display: grid; place-items: center; overflow: hidden; margin-bottom: 10px }
+.pd-card__img img { width: 88%; height: 88%; object-fit: contain; mix-blend-mode: multiply; transition: transform .7s var(--spring) }
+.pd-card:hover .pd-card__img img { transform: scale(1.07) }
+.pd-card h3 { margin: 0; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500 }
+.pd-card span { font-size: 13px; color: var(--mut) }
+.pd-card button { margin-top: 8px; background: var(--yellow); color: var(--ink); font-weight: 600; border: none; padding: 9px 18px; font-family: var(--sans); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: background .3s }
+.pd-card button:hover:not(:disabled) { background: var(--ink); color: var(--yellow) }
+.pd-card button:disabled { opacity: .45; cursor: not-allowed }
+
+/* Assurance strip */
+.pd-assure { background: var(--ink); color: var(--paper); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 26px var(--gutter) }
+.pd-assure .pd-icon { color: var(--yellow) }
+.pd-assure > div { display: flex; align-items: center; gap: 14px; justify-content: center; font-size: 12px }
+.pd-assure b { display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 2px; font-weight: 500 }
+.pd-assure span { opacity: .9; line-height: 1.4 }
+
+/* Sticky bar */
+.pd-bar { position: fixed; left: 50%; bottom: 16px; z-index: 70; transform: translate(-50%, 140%); transition: transform .6s var(--spring); display: flex; align-items: center; gap: 14px; background: #fff; border-radius: 999px; padding: 6px 8px 6px 8px; box-shadow: 0 18px 44px -18px rgba(20, 20, 18, .45), 0 0 0 1px var(--line); max-width: calc(100vw - 24px) }
+.pd-bar.is-on { transform: translate(-50%, 0) }
+.pd-bar img { width: 42px; height: 42px; border-radius: 50%; background: var(--card); object-fit: contain }
+.pd-bar div { display: flex; flex-direction: column; line-height: 1.25; min-width: 0 }
+.pd-bar b { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.pd-bar span { font-size: 12px; color: var(--mut) }
+.pd-bar button { background: var(--yellow); color: var(--ink); font-weight: 600; border: none; border-radius: 999px; padding: 12px 22px; font-family: var(--sans); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; cursor: pointer }
+.pd-bar em { font-style: normal; font-size: 12px; color: var(--mut); padding: 0 16px }
+
+@media (max-width: 960px) {
+  .pd-top { grid-template-columns: 1fr }
+  .pd-tabs { grid-template-columns: 1fr; gap: 28px }
+  .pd-tablist { flex-direction: row; flex-wrap: wrap; gap: 6px 22px }
+  .pd-sprig { display: none }
+  .pd-rv { grid-template-columns: 1fr }
+  .pd-spec { grid-template-columns: repeat(2, 1fr); row-gap: 18px }
+  .pd-spec > div:nth-child(3) { border-left: none }
+}
+@media (prefers-reduced-motion: reduce) { .pd-bar { transition: none } .pd-main__img { transition: none } }
+
+.pd-quiz { padding-top: 24px }
+
+@media (max-width: 960px) {
+  .pd-crumbs a, .pd-crumbs span { padding: 10px 0 }
+  .pd-pick button { min-width: 40px; min-height: 40px }
+  .pd-rating { padding: 10px 0 }
+  .pd-tablist button { padding: 14px 0 }
+  .pd-arrow { min-width: 40px; min-height: 40px }
+}
+@media (max-width: 960px) { .pd-card button { padding: 13px 20px } }
