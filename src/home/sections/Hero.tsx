@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { HeroScene } from '../../three/HeroScene'
+import type { HeroScene } from '../../three/HeroScene'
 import { DotGrid } from '../effects/DotGrid'
 import { CHAPTERS, HERO_WINDOWS, MRP, PRICE, dots, productById, type ProductId } from '../data'
 import { sectionProgress, seg, useFrame } from '../motion'
@@ -31,11 +31,16 @@ export function Hero({ gridSpacing, gridSpotlight, onAdd, onBuyNow, onBuyTrio, o
   const packed = useRef(false)
 
   useEffect(() => {
-    scene.current = new HeroScene(sceneCanvas.current!)
+    let cancelled = false
+    // three.js is ~500 KB: fetch it after first paint instead of blocking it.
+    import('../../three/HeroScene').then(({ HeroScene }) => {
+      if (!cancelled && sceneCanvas.current) scene.current = new HeroScene(sceneCanvas.current)
+    })
     grid.current = new DotGrid(gridCanvas.current!, gridSpacing, gridSpotlight)
     const onMove = (e: MouseEvent) => { pointer.current = { mx: e.clientX / innerWidth - 0.5, my: e.clientY / innerHeight - 0.5 } }
     window.addEventListener('mousemove', onMove)
     return () => {
+      cancelled = true
       window.removeEventListener('mousemove', onMove)
       scene.current?.dispose(); scene.current = null
       grid.current?.dispose(); grid.current = null

@@ -2,6 +2,7 @@ import { useCallback, type ReactNode } from 'react'
 import { useBag } from '../home/useBag'
 import { EMAIL, whatsappUrl } from '../contact'
 import { Doodle } from './Doodle'
+import { Preloader } from '../home/sections/Preloader'
 import { Founder } from '../home/sections/Founder'
 import { Reveal } from '../home/motion'
 import { Crew, Introducing, Standard } from '../home/sections/Story'
@@ -17,6 +18,7 @@ export function Shell({ children, chrome = true }: { children: (bag: ReturnType<
   const checkout = () => bag.flash(bag.totals.count ? 'Prototype only — no payment processed' : 'Your bag is empty')
   return (
     <div className="page">
+      <Preloader />
       {chrome && <OfferBar />}
       {chrome && <Nav count={bag.totals.count} onBag={() => setOpen(true)} />}
       {children(bag)}

@@ -4,9 +4,9 @@ import { Reveal } from '../motion'
 
 /** Each film is paired with the product it shows; change `slug` to relink a video. */
 const FILMS: { src: string; poster: string; slug: string; label: string }[] = [
-  { src: '/assets/videos/motion-1.mp4', poster: '/assets/videos/motion-1.jpg', slug: 'clay-pomade', label: 'The morning routine' },
-  { src: '/assets/videos/motion-2.mp4', poster: '/assets/videos/motion-2.jpg', slug: 'cream-pomade', label: 'Sharp, in one motion' },
-  { src: '/assets/videos/motion-3.mp4', poster: '/assets/videos/motion-3.jpg', slug: 'matte-paste', label: 'Zero shine, full grip' },
+  { src: '/assets/videos/motion-1.mp4', poster: '/assets/videos/motion-1.webp', slug: 'clay-pomade', label: 'The morning routine' },
+  { src: '/assets/videos/motion-2.mp4', poster: '/assets/videos/motion-2.webp', slug: 'cream-pomade', label: 'Sharp, in one motion' },
+  { src: '/assets/videos/motion-3.mp4', poster: '/assets/videos/motion-3.webp', slug: 'matte-paste', label: 'Zero shine, full grip' },
 ]
 
 function Film({ film, i }: { film: (typeof FILMS)[number]; i: number }) {

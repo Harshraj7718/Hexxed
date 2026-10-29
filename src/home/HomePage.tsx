@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react'
 import { resolveTweaks, type Tweaks } from '../config'
 import { useBag } from './useBag'
 import { Hero } from './sections/Hero'
+import { Preloader } from './sections/Preloader'
 import { Born, Crew, Introducing, Marquee, OriginStory, Standard } from './sections/Story'
 import { Bench, Looks, Match } from './sections/Shop'
 import { InMotion } from './sections/Motion'
@@ -33,6 +34,7 @@ export function HomePage({ tweaks: overrides }: { tweaks?: Partial<Tweaks> }) {
 
   return (
     <div className="page">
+      <Preloader />
       <OfferBar />
       <Nav count={bag.totals.count} onBag={openBag} />
       <Hero

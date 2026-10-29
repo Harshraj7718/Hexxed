@@ -1,26 +1,25 @@
-import { StrictMode, type ReactElement } from 'react'
+import { StrictMode, Suspense, lazy, type ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ContactPage, FaqPage, ShippingPage, StoryPage } from './Pages'
-import { ProductPage } from './ProductPage'
-import { CatalogPage } from './CatalogPage'
-import { PrivacyPage, RefundPage, TermsPage } from './Privacy'
 
-const PAGES: Record<string, () => ReactElement> = {
-  products: CatalogPage,
-  product: ProductPage,
-  story: StoryPage,
-  shipping: ShippingPage,
-  contact: ContactPage,
-  faq: FaqPage,
-  privacy: PrivacyPage,
-  refund: RefundPage,
-  terms: TermsPage,
+// Each page loads only its own code (the FAQ no longer downloads GSAP or the legal tables).
+const PAGES: Record<string, ComponentType> = {
+  products: lazy(() => import('./CatalogPage').then(m => ({ default: m.CatalogPage }))),
+  product: lazy(() => import('./ProductPage').then(m => ({ default: m.ProductPage }))),
+  story: lazy(() => import('./Pages').then(m => ({ default: m.StoryPage }))),
+  shipping: lazy(() => import('./Pages').then(m => ({ default: m.ShippingPage }))),
+  contact: lazy(() => import('./Pages').then(m => ({ default: m.ContactPage }))),
+  faq: lazy(() => import('./Pages').then(m => ({ default: m.FaqPage }))),
+  privacy: lazy(() => import('./Privacy').then(m => ({ default: m.PrivacyPage }))),
+  refund: lazy(() => import('./Privacy').then(m => ({ default: m.RefundPage }))),
+  terms: lazy(() => import('./Privacy').then(m => ({ default: m.TermsPage }))),
 }
 
-const Page = PAGES[document.body.dataset.page ?? ''] ?? CatalogPage
+const Page = PAGES[document.body.dataset.page ?? ''] ?? PAGES.products
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Page />
+    <Suspense fallback={null}>
+      <Page />
+    </Suspense>
   </StrictMode>,
 )
