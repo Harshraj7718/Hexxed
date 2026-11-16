@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import LogoPreloader from '../effects/LogoPreloader'
 
 const SEEN = 'hx-intro-seen'
-const DURATION = 2 // seconds the logo holds before it lifts away
+const DURATION = 1.1 // seconds the logo holds before it lifts away
 const seenAlready = () => { try { return sessionStorage.getItem(SEEN) === '1' } catch { return false } }
 
 /** Logo intro: the HAXXED mark rises in, lifts away and the cover fades. Played once per browser session. */

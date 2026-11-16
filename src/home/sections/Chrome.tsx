@@ -40,8 +40,6 @@ export function Nav({ count, onBag }: { count: number; onBag?: () => void }) {
   )
 }
 
-const LETTERS = Array.from('HAXXED')
-
 function hop(e: ReactMouseEvent<HTMLSpanElement>) {
   const el = e.currentTarget
   el.animate?.([
@@ -116,14 +114,12 @@ export function Footer() {
         </Reveal>
       </div>
 
-      <div ref={boxRef} className="footer__word">
+      <div ref={boxRef} className="footer__word footer__word--logo">
         <div className="footer__word-col">
-          <div ref={innerRef} className="footer__word-in" aria-label="HAXXED" role="img">
-            {LETTERS.map((ch, i) => (
-              <span key={i} className="footer__lw" style={{ transitionDelay: 260 + i * 75 + 'ms' }}>
-                <span data-fx="l" className="footer__l" onClick={hop}>{ch}</span>
-              </span>
-            ))}
+          <div ref={innerRef} className="footer__logo-in" data-logo role="img" aria-label="HAXXED Grooming & Co.">
+            <span className="footer__lw" style={{ transitionDelay: '260ms' }}>
+              <span data-fx="l" className="footer__l footer__logo" onClick={hop} />
+            </span>
           </div>
         </div>
         <div className="footer__fade" aria-hidden="true" />

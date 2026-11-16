@@ -47,7 +47,7 @@ export function HomePage({ tweaks: overrides }: { tweaks?: Partial<Tweaks> }) {
       />
       <HomeReviews />
       <Marquee seconds={tweaks.marqueeSpeed} />
-      <Born metalSpeed={tweaks.metalSpeed} />
+      <Born />
       <Crew />
       <Introducing />
       <Standard />

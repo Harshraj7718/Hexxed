@@ -17,6 +17,8 @@ export type Product = {
   /** Ratings without published numbers are shown with a ≈ prefix. */
   approx?: boolean
   img: string | null
+  /** ~520 px version for cards, rails and grids. */
+  thumb: string | null
   accent: string
   stock: boolean
 }
@@ -43,6 +45,7 @@ export const PRODUCTS: Product[] = Object.entries(details).map(([slug, d]) => ({
   shine: d.shine,
   approx: d.approx || undefined,
   img: d.gallery[0] ?? null,
+  thumb: d.gallery[0]?.replace(/g1\.webp$/, 'g1-sm.webp') ?? null,
   accent: ACCENT[d.id as ProductId] ?? '#141412',
   stock: d.stock,
 }))
@@ -94,7 +97,7 @@ export function quizResult(ans: string[]): ProductId {
 }
 
 export const STATS: { count: number; dec: number; big: string; suffix: string; small: string }[] = [
-  { count: 10000, dec: 0, big: '10,000', suffix: '+', small: 'men styling with HAXXED every day' },
+  { count: 6921, dec: 0, big: '6,921', suffix: '+', small: 'men styling with HAXXED every day' },
   { count: 87.9, dec: 1, big: '87.9', suffix: '%', small: 'come back for another jar' },
   { count: 29000, dec: 0, big: '29,000', suffix: '+', small: 'pincodes with free delivery' },
   { count: 0, dec: 0, big: 'Made', suffix: ' in India', small: 'for Indian hair and climate' },

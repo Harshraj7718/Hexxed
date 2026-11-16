@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { PRODUCTS, type Product } from '../data'
 import { Reveal } from '../motion'
 import { readAllReviews, type Entry } from '../../pages/reviews'
@@ -34,7 +34,7 @@ function ReviewCard({ card }: { card: Card }) {
         </div>
       </div>
       <a className="rcard__media" href={'/product.html?p=' + p.slug} aria-label={'View ' + p.name}>
-        <img src={p.img!} alt="" loading="lazy" />
+        <img src={p.thumb!} alt="" loading="lazy" />
         <span>{p.name}</span>
       </a>
     </article>
@@ -58,6 +58,35 @@ export function HomeReviews() {
     return [...real, ...fill].slice(0, Math.max(MIN_CARDS, real.length))
   }, [all])
 
+  const rail = useRef<HTMLDivElement>(null)
+  const track = useRef<HTMLDivElement>(null)
+
+  // Start a lap in so the rail can be nudged backwards without running off its start.
+  useEffect(() => {
+    const a = track.current?.getAnimations()[0]
+    const d = Number(a?.effect?.getTiming().duration)
+    if (a && d) a.currentTime = d
+  }, [])
+
+  /** Move the rail one card left (-1) or right (+1): glide the running animation, or scroll when motion is reduced. */
+  const nudge = (dir: -1 | 1) => {
+    const el = track.current, a = el?.getAnimations()[0]
+    const card = el?.querySelector<HTMLElement>('.rcard')
+    if (!el || !card) return
+    const step = card.offsetWidth + 20
+    if (!a) { rail.current?.scrollBy({ left: dir * step, behavior: 'smooth' }); return }
+    const dur = Number(a.effect?.getTiming().duration)
+    const from = Number(a.currentTime)
+    const to = from + dir * (step / (el.scrollWidth / 2)) * dur
+    const t0 = performance.now()
+    const tick = (now: number) => {
+      const k = Math.min(1, (now - t0) / 450)
+      a.currentTime = from + (to - from) * (1 - Math.pow(1 - k, 3))
+      if (k < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }
+
   return (
     <section id="reviews" className="hrv">
       <Reveal className="section-head hrv__head">
@@ -65,13 +94,19 @@ export function HomeReviews() {
           <div className="eyebrow">Customer reviews</div>
           <h2 className="h2">Heard it from <span className="hl">the crew.</span></h2>
         </div>
-        {all.length > 0 && (
-          <div className="hrv__avg"><b>{avg.toFixed(1)}</b><Stars value={avg} /><span>{all.length} review{all.length === 1 ? '' : 's'}</span></div>
-        )}
+        <div className="hrv__side">
+          {all.length > 0 && (
+            <div className="hrv__avg"><b>{avg.toFixed(1)}</b><Stars value={avg} /><span>{all.length} review{all.length === 1 ? '' : 's'}</span></div>
+          )}
+          <div className="rail__ctrl" role="group" aria-label="Review carousel controls">
+            <button type="button" onClick={() => nudge(-1)} aria-label="Previous review">←</button>
+            <button type="button" onClick={() => nudge(1)} aria-label="Next review">→</button>
+          </div>
+        </div>
       </Reveal>
 
-      <div className="rail" aria-label="Customer reviews">
-        <div className="rail__track" style={{ animationDuration: Math.max(30, cards.length * 7) + 's' }}>
+      <div ref={rail} className="rail" aria-label="Customer reviews">
+        <div ref={track} className="rail__track" style={{ animationDuration: Math.max(30, cards.length * 7) + 's' }}>
           {[0, 1].map(copy => (
             <div className="rail__set" key={copy} aria-hidden={copy === 1 ? true : undefined}>
               {cards.map((c, i) => <ReviewCard key={c.product.slug + i} card={c} />)}

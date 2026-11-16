@@ -1,10 +1,7 @@
-import { Suspense, lazy, useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { MARQUEE_WORDS, PILLARS, QUESTION, STATS } from '../data'
 import { CountUp, Reveal, cl, ease, sectionProgress, seg, useFrame } from '../motion'
 
-// The logo shader pre-processes its image on the main thread, so load it late and only when needed.
-const LiquidMetalLogo = lazy(() => import('../effects/FramerLiquidMetal'))
-const LOGO = '/assets/haxxed-logo-metal.png'
 const WORDS = QUESTION.split(' ')
 
 export function Marquee({ seconds }: { seconds: number }) {
@@ -18,17 +15,9 @@ export function Marquee({ seconds }: { seconds: number }) {
   )
 }
 
-/** The question fills in word by word as you scroll, then gives way to the liquid-metal logo. */
-export function Born({ metalSpeed }: { metalSpeed: number }) {
+/** The question fills in word by word as you scroll, then gives way to the HAXXED logo. */
+export function Born() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [near, setNear] = useState(false)
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setNear(true); io.disconnect() } }, { rootMargin: '120% 0px' })
-    io.observe(el)
-    return () => io.disconnect()
-  }, [])
   const questionRef = useRef<HTMLDivElement>(null)
   const bornRef = useRef<HTMLDivElement>(null)
   useFrame(() => {
@@ -56,13 +45,7 @@ export function Born({ metalSpeed }: { metalSpeed: number }) {
         </div>
         <div ref={bornRef} className="born__reveal">
           <div className="eyebrow">Turns out, yes. So</div>
-          <div className="born__logo" role="img" aria-label="HAXXED">
-            {near && (
-              <Suspense fallback={null}>
-                <LiquidMetalLogo imageSource={LOGO} speed={0.3 * metalSpeed} dispersion={0.015} edge={0.4} patternBlur={0.005} liquify={0.07} patternScale={2} />
-              </Suspense>
-            )}
-          </div>
+          <div className="born__logo" role="img" aria-label="HAXXED Grooming & Co." />
           <div className="born__was">was born.</div>
         </div>
       </div>

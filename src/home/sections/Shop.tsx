@@ -3,8 +3,8 @@ import { LOOKS, MRP, PRICE, PRODUCTS, QUIZ, WHY, productById, quizResult, type P
 import { Reveal } from '../motion'
 
 export function ProductImage({ product, className = 'contain-img', label }: { product: Product; className?: string; label?: string }) {
-  return product.img
-    ? <div role="img" aria-label={product.name} className={className} style={{ backgroundImage: `url(${product.img})` }} />
+  return product.thumb
+    ? <div role="img" aria-label={product.name} className={className} style={{ backgroundImage: `url(${product.thumb})` }} />
     : <div className="placeholder">{label}</div>
 }
 

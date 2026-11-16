@@ -139,7 +139,7 @@ function Catalog({ bag }: { bag: BagApi }) {
           {shown.map((p, i) => (
             <article key={p.id} className="ct-card">
               <a href={'/product.html?p=' + p.slug} className="ct-media" style={{ aspectRatio: RATIOS[i % RATIOS.length] }} aria-label={p.name}>
-                <img src={p.img!} alt={p.name} loading="lazy" />
+                <img src={p.thumb!} alt={p.name} loading="lazy" />
               </a>
               <h2 className="ct-name">{p.name}</h2>
               <div className="ct-sub">{p.sub}</div>

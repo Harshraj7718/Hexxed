@@ -4,11 +4,11 @@ import { Reveal } from '../motion'
 /** Tiles reuse our own look and product shots; swap in real post images here. */
 const TILES = [
   '/assets/look-quiff.webp',
-  '/assets/products/clay-pomade/g1.webp',
+  '/assets/products/clay-pomade/g1-sm.webp',
   '/assets/look-crop.webp',
-  '/assets/products/matte-paste/g1.webp',
+  '/assets/products/matte-paste/g1-sm.webp',
   '/assets/look-curls.webp',
-  '/assets/products/define-cream/g1.webp',
+  '/assets/products/define-cream/g1-sm.webp',
 ]
 
 export function InstagramFeed() {

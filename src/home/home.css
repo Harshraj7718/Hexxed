@@ -10,7 +10,7 @@
   --on-dark-muted: #c9c6bc;
   --on-dark-dim: #a9a69c;
   --serif: 'Instrument Serif', serif;
-  --sans: 'Geist', system-ui, sans-serif;
+  --sans: 'Geist Variable', 'Geist', system-ui, sans-serif;
   --mono: 'Geist Mono', monospace;
   --gutter: clamp(16px, 4vw, 56px);
   --section-y: clamp(80px, 12vw, 160px);
@@ -130,7 +130,6 @@ button { font: inherit; color: inherit }
 .born__words span { display: inline-block; margin-right: .22em; opacity: .14 }
 .born__reveal { grid-area: 1/1; opacity: 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px }
 .born__reveal .eyebrow { font-size: 13px; color: var(--on-dark-dim) }
-.born__logo { width: min(74vw, 560px); aspect-ratio: 1; display: block }
 .born__logo-fallback { width: min(70vw, 760px); height: auto; filter: invert(1); display: block }
 .born__was { font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 96px); line-height: 1; color: var(--yellow) }
 
@@ -507,3 +506,21 @@ a.card__name { color: var(--ink) } a.card__media { display: grid }
 .pl { position: fixed; inset: 0; z-index: 300; overflow: hidden }
 .pl__skip { position: absolute; right: clamp(16px, 3vw, 32px); bottom: clamp(16px, 3vw, 32px); z-index: 10000; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--paper); background: rgba(20, 20, 18, .7); border: none; border-radius: 999px; padding: 10px 18px; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px) }
 .pl__skip:hover { background: var(--yellow); color: var(--ink) }
+
+/* Footer logo: the logo shape is a mask over the same beam-lit gradients the letters used. */
+.footer__word--logo { height: auto }
+.footer__logo-in { display: block; text-align: center; overflow: hidden; padding-bottom: 2px }
+.footer__logo-in .footer__lw { display: block; width: 100% }
+.footer__l.footer__logo { display: block; margin: 0 auto; width: min(100%, 620px); aspect-ratio: 2 / 1; cursor: pointer; color: transparent; -webkit-background-clip: border-box; background-clip: border-box; -webkit-mask: url(/assets/haxxed-logo.png) center / contain no-repeat; mask: url(/assets/haxxed-logo.png) center / contain no-repeat; background-image: radial-gradient(circle 22vw at var(--px, 50%) var(--py, 50%), rgba(250, 244, 24, calc(var(--g, 0) * .9)), transparent 70%), linear-gradient(118deg, transparent calc(var(--b, 58%) - 9%), rgba(250, 244, 24, .7) calc(var(--b, 58%) - 1.5%), rgba(250, 244, 24, .95) var(--b, 58%), rgba(250, 244, 24, .3) calc(var(--b, 58%) + 3.5%), transparent calc(var(--b, 58%) + 8%)), linear-gradient(rgba(238, 237, 232, .55), rgba(238, 237, 232, .55)) }
+
+/* Reveal logo: the regular logo shape, white, with a slow light sweep passing through it. */
+.born__logo { width: min(80vw, 640px); aspect-ratio: 2 / 1; display: block; -webkit-mask: url(/assets/haxxed-logo.png) center / contain no-repeat; mask: url(/assets/haxxed-logo.png) center / contain no-repeat; background: linear-gradient(105deg, #d9d7cf 0%, #d9d7cf 38%, #ffffff 48%, #fff7a8 52%, #ffffff 56%, #d9d7cf 66%, #d9d7cf 100%); background-size: 300% 100%; animation: born-sheen 5s ease-in-out infinite }
+@keyframes born-sheen { 0% { background-position: 100% 0 } 100% { background-position: 0 0 } }
+@media (prefers-reduced-motion: reduce) { .born__logo { animation: none; background-position: 50% 0 } }
+
+/* Review carousel controls */
+.hrv__side { display: flex; flex-direction: column; align-items: flex-end; gap: 16px }
+.rail__ctrl { display: flex; gap: 10px }
+.rail__ctrl button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 16px; cursor: pointer; display: grid; place-items: center; transition: background .25s, transform .25s }
+.rail__ctrl button:hover { background: var(--yellow); transform: scale(1.06) }
+@media (max-width: 720px) { .hrv__side { align-items: flex-start } }

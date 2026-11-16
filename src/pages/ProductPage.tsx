@@ -172,11 +172,11 @@ function Inner({ p, bag }: { p: Product; bag: Bag }) {
           </div>
           {d.gallery.length > 1 && (
             <div className="pd-thumbs">
-              <button type="button" className="pd-arrow" aria-label="Previous image" onClick={() => setActive(a => (a - 1 + d.gallery.length) % d.gallery.length)}>←</button>
+              <button type="button" className="pd-arrow pd-arrow--g" aria-label="Previous image" onClick={() => setActive(a => (a - 1 + d.gallery.length) % d.gallery.length)}><span className="g-h">←</span><span className="g-v">↑</span></button>
               {d.gallery.map((g, i) => (
                 <button key={g} type="button" className="pd-thumb" data-on={i === active ? '' : undefined} onClick={() => setActive(i)} aria-label={`Image ${i + 1}`}><img src={g} alt="" /></button>
               ))}
-              <button type="button" className="pd-arrow" aria-label="Next image" onClick={() => setActive(a => (a + 1) % d.gallery.length)}>→</button>
+              <button type="button" className="pd-arrow pd-arrow--g" aria-label="Next image" onClick={() => setActive(a => (a + 1) % d.gallery.length)}><span className="g-h">→</span><span className="g-v">↓</span></button>
             </div>
           )}
         </div>
@@ -305,7 +305,7 @@ function Inner({ p, bag }: { p: Product; bag: Bag }) {
           <div ref={rail} className="pd-rail">
             {others.map(o => (
               <article key={o.id} className="pd-card">
-                <a href={'/product.html?p=' + o.slug} className="pd-card__img"><img src={o.img!} alt={o.name} loading="lazy" /></a>
+                <a href={'/product.html?p=' + o.slug} className="pd-card__img"><img src={o.thumb!} alt={o.name} loading="lazy" /></a>
                 <h3>{o.name}</h3>
                 <span>{inr(PRICE)}</span>
                 <button type="button" disabled={!o.stock} onClick={() => bag.add(o.id)}>{o.stock ? 'Add to bag' : 'Sold out'}</button>

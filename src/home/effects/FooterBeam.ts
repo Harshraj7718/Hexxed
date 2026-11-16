@@ -49,23 +49,30 @@ export class FooterBeam {
    *  page-sized background gradients line up across letters. */
   fit = () => {
     const { root, box, inner } = this
-    const wb = inner.parentElement!
-    const pad = parseFloat(getComputedStyle(wb).paddingLeft) || 0
-    const target = wb.clientWidth - pad * 2
-    inner.style.fontSize = '100px'
-    const measured = inner.offsetWidth
-    const size = measured > 0 ? Math.min(100 * target / measured, target * 0.42) : 0
-    inner.style.fontSize = size + 'px'
-    let base = 0.8
-    try {
-      const c = document.createElement('canvas').getContext('2d')!
-      c.font = '400 100px ' + getComputedStyle(inner).fontFamily
-      const m = c.measureText('HAXXED')
-      if (m.fontBoundingBoxAscent > 0) base = cl(((100 - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent) / 100, 0.5, 1.2)
-    } catch {
-      // keep default baseline ratio
+    let size: number
+    if (inner.dataset.logo !== undefined) {
+      // Logo mode: the image sets its own size; just match the box to it.
+      size = inner.offsetHeight
+      box.style.height = size + 'px'
+    } else {
+      const wb = inner.parentElement!
+      const pad = parseFloat(getComputedStyle(wb).paddingLeft) || 0
+      const target = wb.clientWidth - pad * 2
+      inner.style.fontSize = '100px'
+      const measured = inner.offsetWidth
+      size = measured > 0 ? Math.min(100 * target / measured, target * 0.42) : 0
+      inner.style.fontSize = size + 'px'
+      let base = 0.8
+      try {
+        const c = document.createElement('canvas').getContext('2d')!
+        c.font = '400 100px ' + getComputedStyle(inner).fontFamily
+        const m = c.measureText('HAXXED')
+        if (m.fontBoundingBoxAscent > 0) base = cl(((100 - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent) / 100, 0.5, 1.2)
+      } catch {
+        // keep default baseline ratio
+      }
+      box.style.height = Math.max(0, size * (base + 0.12)) + 'px'
     }
-    box.style.height = Math.max(0, size * (base + 0.12)) + 'px'
     const rr = root.getBoundingClientRect()
     root.style.setProperty('--rw', rr.width + 'px')
     root.style.setProperty('--rh', rr.height + 'px')

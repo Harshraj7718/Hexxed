@@ -1,6 +1,6 @@
 export const EMAIL = 'haxxedgroomingco@gmail.com'
 /** WhatsApp number in international format without + or spaces, e.g. '919876543210'. Empty opens WhatsApp's contact picker. */
-export const WHATSAPP_NUMBER = ''
+export const WHATSAPP_NUMBER = '919940567468'
 export const whatsappUrl = (text = 'Hi HAXXED, I have a question.') =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
 export const INSTAGRAM_HANDLE = 'haxxedgroomingco'
