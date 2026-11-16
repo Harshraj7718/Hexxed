@@ -110,3 +110,7 @@
   .ct-heart { padding: 8px; margin: -8px }
   .ct-foot__links a, .ct-addr a { display: inline-block; padding: 10px 0 }
 }
+
+@media (max-width: 720px) {
+  .ct-nav { justify-content: space-between; gap: 6px; font-size: 12px; overflow-x: visible }
+}

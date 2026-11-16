@@ -524,3 +524,25 @@ a.card__name { color: var(--ink) } a.card__media { display: grid }
 .rail__ctrl button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 16px; cursor: pointer; display: grid; place-items: center; transition: background .25s, transform .25s }
 .rail__ctrl button:hover { background: var(--yellow); transform: scale(1.06) }
 @media (max-width: 720px) { .hrv__side { align-items: flex-start } }
+
+/* ── Mobile polish ─────────────────────────────────────────── */
+@media (max-width: 720px) {
+  /* All five header links fit on one row, spread edge to edge. */
+  .nav__links { justify-content: space-between; gap: 6px; font-size: 12.5px }
+  /* Floating buttons: smaller and tucked into the corner so they cover less content. */
+  .fab { right: 10px; bottom: 10px; gap: 8px }
+  .wa, .fab__shop { padding: 11px }
+  .wa svg, .fab__shop svg { width: 22px; height: 22px }
+  /* Nothing below 11px. */
+  .hero__sticker, .hero__hint, .flip__hint, .pback__back, .rcard__media span, .ig__tile span { font-size: 11px }
+}
+@media (max-width: 360px) {
+  .nav__links { font-size: 12px; gap: 4px }
+  .rcard { width: 88vw }
+}
+
+/* Instagram block on very narrow phones */
+.ig__id { min-width: 0 }
+.ig__id b { overflow-wrap: anywhere }
+@media (max-width: 860px) { .ig__grid { grid-template-columns: minmax(0, 1fr) } .ig__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 380px) { .ig__profile { padding: 22px 18px } .ig__avatar { width: 60px; height: 60px } .ig__id b { font-size: 16px } }
