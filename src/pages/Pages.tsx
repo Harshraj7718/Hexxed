@@ -15,7 +15,6 @@ export function Shell({ children, chrome = true }: { children: (bag: ReturnType<
   const bag = useBag()
   const { setOpen } = bag
   const close = useCallback(() => setOpen(false), [setOpen])
-  const checkout = () => bag.flash(bag.totals.count ? 'Prototype only — no payment processed' : 'Your bag is empty')
   return (
     <div className="page">
       <Preloader />
@@ -23,7 +22,7 @@ export function Shell({ children, chrome = true }: { children: (bag: ReturnType<
       {chrome && <Nav count={bag.totals.count} onBag={() => setOpen(true)} />}
       {children(bag)}
       {chrome && <Footer />}
-      <BagDrawer open={bag.open} cart={bag.cart} totals={bag.totals} onClose={close} onQty={bag.setQty} onCheckout={checkout} prepaid={bag.prepaid} onPrepaid={bag.setPrepaid} />
+      <BagDrawer open={bag.open} cart={bag.cart} totals={bag.totals} onClose={close} onQty={bag.setQty} onCheckout={bag.checkout} prepaid={bag.prepaid} onPrepaid={bag.setPrepaid} />
       <Toast message={bag.toast} />
       <WhatsAppButton showShop={chrome} />
     </div>

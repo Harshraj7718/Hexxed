@@ -28,10 +28,6 @@ export function HomePage({ tweaks: overrides }: { tweaks?: Partial<Tweaks> }) {
     bag.flash('3-jar box added — 15% off unlocked')
   }
 
-  const checkout = () => {
-    bag.flash(bag.totals.count > 0 ? 'Prototype only — no payment processed' : 'Your bag is empty')
-  }
-
   return (
     <div className="page">
       <Preloader />
@@ -59,7 +55,7 @@ export function HomePage({ tweaks: overrides }: { tweaks?: Partial<Tweaks> }) {
       <OriginStory />
       <Founder more />
       <Footer />
-      <BagDrawer open={bag.open} cart={bag.cart} totals={bag.totals} onClose={closeBag} onQty={bag.setQty} onCheckout={checkout} prepaid={bag.prepaid} onPrepaid={bag.setPrepaid} />
+      <BagDrawer open={bag.open} cart={bag.cart} totals={bag.totals} onClose={closeBag} onQty={bag.setQty} onCheckout={bag.checkout} prepaid={bag.prepaid} onPrepaid={bag.setPrepaid} />
       <Toast message={bag.toast} />
       <WhatsAppButton />
     </div>

@@ -21,6 +21,8 @@ export type Product = {
   thumb: string | null
   accent: string
   stock: boolean
+  /** Shopify variant to buy; filled in by syncShopifyProducts() when Shopify is connected. */
+  variantId?: string
 }
 
 const ACCENT: Partial<Record<ProductId, string>> = { clay: '#4a3c34', define: '#2c7a6e', cream: '#4636a6', matte: '#141412' }

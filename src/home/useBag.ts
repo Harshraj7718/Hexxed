@@ -1,5 +1,8 @@
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PRICE, productById, type ProductId } from './data'
+import { SHOPIFY_ENABLED } from '../shopify/client'
+import { syncShopifyProducts } from '../shopify/products'
+import { createCheckout, type CheckoutLine } from '../shopify/checkout'
 
 export type Cart = Partial<Record<ProductId, number>>
 
@@ -30,6 +33,8 @@ export function useBag() {
   const [open, setOpen] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
   const [prepaid, setPrepaid] = useState(false)
+  const [, setSynced] = useState(0)
+  const checkingOut = useRef(false)
   const toastTimer = useRef(0)
   const cartRef = useRef(cart)
   cartRef.current = cart
@@ -71,6 +76,33 @@ export function useBag() {
     })
   }, [])
 
+  // When Shopify is connected, live stock replaces the local flags and everything re-renders once.
+  useEffect(() => { void syncShopifyProducts().then(ok => { if (ok) setSynced(n => n + 1) }) }, [])
+
+  /** Prototype message without Shopify; otherwise builds a Shopify cart and sends the customer to its checkout. */
+  const checkout = useCallback(async () => {
+    const entries = Object.entries(cartRef.current) as [ProductId, number][]
+    if (!entries.length) { flash('Your bag is empty'); return }
+    if (!SHOPIFY_ENABLED) { flash('Prototype only — no payment processed'); return }
+    if (checkingOut.current) return
+    const lines: CheckoutLine[] = []
+    for (const [id, quantity] of entries) {
+      const p = productById(id)
+      if (!p.variantId) { flash(p.name + ' is not available to buy yet'); return }
+      lines.push({ variantId: p.variantId, quantity })
+    }
+    const code = import.meta.env.VITE_SHOPIFY_PREPAID_CODE?.trim()
+    checkingOut.current = true
+    flash('Taking you to checkout…')
+    try {
+      window.location.assign(await createCheckout(lines, prepaid && code ? [code] : []))
+    } catch (err) {
+      console.error('[shopify] checkout failed:', err)
+      checkingOut.current = false
+      flash('Checkout is unavailable right now. Please try again.')
+    }
+  }, [flash, prepaid])
+
   const totals = useMemo(() => bagTotals(cart, prepaid), [cart, prepaid])
-  return { cart, totals, prepaid, setPrepaid, open, setOpen, toast, flash, add, addMany, setQty }
+  return { cart, totals, prepaid, setPrepaid, open, setOpen, toast, flash, add, addMany, setQty, checkout }
 }
