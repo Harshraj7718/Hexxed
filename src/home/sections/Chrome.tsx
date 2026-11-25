@@ -3,7 +3,7 @@ import { INSTAGRAM_URL, SUPPORT, YOUTUBE_URL, whatsappUrl } from '../../contact'
 import { FooterBeam } from '../effects/FooterBeam'
 import { PRICE, inr, productById, type ProductId } from '../data'
 import { Reveal, useFrame } from '../motion'
-import { bundleMessage, type Cart, type bagTotals } from '../useBag'
+import { bundleMessage, type Cart, type bagTotals, PREPAID_AVAILABLE } from '../useBag'
 import { ProductImage } from './Shop'
 
 const OFFERS = ['Buy 2 get 10% off', 'Buy 3 get 15% off', 'Buy 4 get 20% off', 'Get 5% additional discount on prepaid', 'Free delivery pan India']
@@ -190,11 +190,13 @@ export function BagDrawer({ open, cart, totals, onClose, onQty, onCheckout, prep
         <div className="drawer__foot">
           <div className="sum"><span>Subtotal</span><span>{inr(subtotal)}</span></div>
           <div className="sum"><span>Bundle saving</span><span>{saving ? '−' + inr(saving) : '—'}</span></div>
+          {PREPAID_AVAILABLE && (
           <label className="prepay">
             <input type="checkbox" checked={prepaid} onChange={e => onPrepaid(e.target.checked)} />
             <span>Pay online (prepaid) · extra 5% off</span>
           </label>
-          {prepaid && <div className="sum"><span>Prepaid discount</span><span>−{inr(prepaidSaving)}</span></div>}
+          )}
+          {PREPAID_AVAILABLE && prepaid && <div className="sum"><span>Prepaid discount</span><span>−{inr(prepaidSaving)}</span></div>}
           <div className="sum"><span>Delivery</span><span>Free</span></div>
           <div className="sum sum--total"><span>Total</span><span>{inr(total)}</span></div>
           <button type="button" className="btn btn--yellow checkout" onClick={onCheckout}>Checkout · free delivery pan India</button>

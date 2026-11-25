@@ -28,6 +28,9 @@ export function bundleMessage(count: number) {
   return 'Buy 2 get 10% off · Buy 3 get 15% off · Buy 4 get 20% off.'
 }
 
+/** The prepaid tick box is only honest when checkout can apply it: always in the prototype, or when a Shopify discount code is configured. */
+export const PREPAID_AVAILABLE = !SHOPIFY_ENABLED || Boolean(import.meta.env.VITE_SHOPIFY_PREPAID_CODE?.trim())
+
 export function useBag() {
   const [cart, setCart] = useState<Cart>({})
   const [open, setOpen] = useState(false)
