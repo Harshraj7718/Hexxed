@@ -1,4 +1,4 @@
-export const PRICE = 599
+export const PRICE = 699
 export const MRP = 799
 
 import details from './productDetails.json'
